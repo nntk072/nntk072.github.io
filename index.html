@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Long Nguyen | Software Engineer</title>
+  <title>Long Nguyen | Software Engineer & ML Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --clr-bg:        #fafaf8;
@@ -19,576 +18,658 @@
       --clr-accent:    #2563eb;
       --clr-accent-lt: #eff6ff;
       --clr-tag:       #f1f5f9;
+      --clr-nokia:     #124191;
       --radius:        10px;
       --shadow-sm:     0 1px 3px rgba(0,0,0,.07);
       --shadow-md:     0 4px 16px rgba(0,0,0,.09);
-      --max-w:         860px;
+      --max-w:         900px;
       --font-sans:     'Inter', system-ui, sans-serif;
       --font-serif:    'Crimson Pro', Georgia, serif;
     }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      background: var(--clr-bg);
-      color: var(--clr-text);
-      line-height: 1.65;
-      font-size: 16px;
-    }
+    body { font-family: var(--font-sans); background: var(--clr-bg); color: var(--clr-text); line-height: 1.65; font-size: 16px; }
     a { color: var(--clr-accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── Nav ── */
+    /* Nav */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: rgba(250,250,248,.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--clr-border);
     }
     .nav-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
     }
-    .nav-logo {
-      font-weight: 600;
-      font-size: .95rem;
-      color: var(--clr-text);
-      letter-spacing: -.01em;
-    }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      color: var(--clr-muted);
-      font-size: .88rem;
-      font-weight: 500;
-      transition: color .2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--clr-accent); text-decoration: none; }
+    .nav-logo { font-weight: 600; font-size: .95rem; color: var(--clr-text); letter-spacing: -.01em; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--clr-muted); font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--clr-accent); text-decoration: none; }
 
-    /* ── Layout ── */
+    /* Layout */
     main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px 80px; }
     section { padding: 64px 0 0; }
-    section:first-child { padding-top: 72px; }
 
     h2 {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      font-weight: 600;
-      letter-spacing: -.02em;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-family: var(--font-serif); font-size: 1.75rem; font-weight: 600;
+      letter-spacing: -.02em; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 10px;
     }
-    h2::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--clr-border);
-    }
+    h2::after { content: ''; flex: 1; height: 1px; background: var(--clr-border); }
 
-    /* ── Hero ── */
+    /* Hero */
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 160px;
-      gap: 40px;
-      align-items: center;
-      padding-top: 72px;
+      display: grid; grid-template-columns: 1fr 160px;
+      gap: 40px; align-items: center; padding-top: 72px;
     }
     .hero-name {
-      font-family: var(--font-serif);
-      font-size: 2.6rem;
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      margin-bottom: 6px;
+      font-family: var(--font-serif); font-size: 2.6rem; font-weight: 600;
+      line-height: 1.1; letter-spacing: -.03em; margin-bottom: 6px;
     }
-    .hero-title {
-      font-size: 1.05rem;
-      color: var(--clr-accent);
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-    .hero-bio {
-      color: var(--clr-muted);
-      font-size: .97rem;
-      max-width: 560px;
-      line-height: 1.75;
-      margin-bottom: 28px;
-    }
-    .hero-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-title { font-size: 1.05rem; color: var(--clr-accent); font-weight: 500; margin-bottom: 20px; }
+    .hero-bio { color: var(--clr-muted); font-size: .97rem; max-width: 580px; line-height: 1.8; margin-bottom: 28px; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 10px; }
+
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 20px;
-      border-radius: var(--radius);
-      font-size: .875rem;
-      font-weight: 500;
-      transition: all .2s;
-      border: 1px solid transparent;
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px; border-radius: var(--radius);
+      font-size: .875rem; font-weight: 500; transition: all .2s; border: 1px solid transparent;
     }
-    .btn-primary {
-      background: var(--clr-accent);
-      color: #fff;
-    }
+    .btn-primary { background: var(--clr-accent); color: #fff; }
     .btn-primary:hover { background: #1d4ed8; text-decoration: none; }
-    .btn-secondary {
-      background: var(--clr-surface);
-      color: var(--clr-text);
-      border-color: var(--clr-border);
-      box-shadow: var(--shadow-sm);
-    }
+    .btn-secondary { background: var(--clr-surface); color: var(--clr-text); border-color: var(--clr-border); box-shadow: var(--shadow-sm); }
     .btn-secondary:hover { background: var(--clr-tag); text-decoration: none; }
 
     .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--clr-border);
-      box-shadow: var(--shadow-md);
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: white;
-      font-family: var(--font-serif);
+      width: 148px; height: 148px; border-radius: 50%;
+      background: linear-gradient(135deg, #124191 0%, #2563eb 60%, #60a5fa 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem; color: white; font-family: var(--font-serif); font-weight: 600;
+      border: 3px solid var(--clr-border); box-shadow: var(--shadow-md); flex-shrink: 0;
     }
 
-    /* ── Info Cards ── */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 4px;
-    }
-    .info-card {
-      background: var(--clr-surface);
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-    }
-    .info-card-label {
-      font-size: .75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--clr-muted);
-      margin-bottom: 6px;
-    }
-    .info-card-value { font-size: .95rem; font-weight: 500; }
+    /* Info strip */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 4px; }
+    .info-card { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); }
+    .info-card-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--clr-muted); margin-bottom: 5px; }
+    .info-card-value { font-size: .93rem; font-weight: 500; }
 
-    /* ── About ── */
-    .about-text {
-      font-size: .97rem;
-      color: var(--clr-muted);
-      line-height: 1.8;
-    }
-    .about-text p + p { margin-top: 16px; }
+    /* About */
+    .about-text { font-size: .97rem; color: var(--clr-muted); line-height: 1.8; }
+    .about-text p + p { margin-top: 14px; }
 
-    /* ── Research ── */
-    .pub-list { display: flex; flex-direction: column; gap: 16px; }
-    .pub-card {
-      background: var(--clr-surface);
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      transition: box-shadow .2s;
+    /* Experience */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: grid; grid-template-columns: 100px 1fr; gap: 0 24px; position: relative; }
+    .tl-item + .tl-item { margin-top: 0; }
+    .tl-left { text-align: right; padding-top: 20px; padding-right: 24px; border-right: 2px solid var(--clr-border); position: relative; }
+    .tl-left::after {
+      content: ''; position: absolute; right: -6px; top: 26px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--clr-accent); border: 2px solid var(--clr-bg);
     }
-    .pub-card:hover { box-shadow: var(--shadow-md); }
-    .pub-year {
-      font-size: .78rem;
-      font-weight: 600;
-      color: var(--clr-accent);
-      background: var(--clr-accent-lt);
-      padding: 4px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      margin-top: 2px;
+    .tl-date { font-size: .75rem; font-weight: 600; color: var(--clr-muted); line-height: 1.4; }
+    .tl-right { padding: 20px 0 32px 0; }
+    .tl-role { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
+    .tl-company { font-size: .88rem; color: var(--clr-accent); font-weight: 500; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .tl-badge {
+      font-size: .7rem; font-weight: 600; padding: 2px 8px; border-radius: 20px;
+      background: var(--clr-accent-lt); color: var(--clr-accent);
     }
-    .pub-info {}
-    .pub-title { font-weight: 600; font-size: .97rem; margin-bottom: 4px; }
-    .pub-authors { font-size: .87rem; color: var(--clr-muted); margin-bottom: 6px; }
-    .pub-venue {
-      font-size: .82rem;
-      font-style: italic;
-      color: var(--clr-muted);
+    .tl-desc { font-size: .88rem; color: var(--clr-muted); line-height: 1.7; }
+    .tl-desc li { margin-left: 16px; margin-bottom: 4px; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag { font-size: .73rem; font-weight: 500; background: var(--clr-tag); color: var(--clr-muted); padding: 3px 10px; border-radius: 20px; }
+
+    /* Education */
+    .edu-list { display: flex; flex-direction: column; gap: 16px; }
+    .edu-card {
+      background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius);
+      padding: 22px 24px; box-shadow: var(--shadow-sm); display: flex; gap: 20px; align-items: flex-start;
+    }
+    .edu-icon { font-size: 2rem; flex-shrink: 0; }
+    .edu-degree { font-weight: 600; font-size: 1rem; margin-bottom: 3px; }
+    .edu-school { font-size: .9rem; color: var(--clr-accent); font-weight: 500; margin-bottom: 4px; }
+    .edu-meta { font-size: .82rem; color: var(--clr-muted); line-height: 1.6; }
+    .edu-gpa {
+      font-size: .78rem; font-weight: 600; padding: 2px 10px; border-radius: 20px;
+      background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; display: inline-block; margin-top: 6px;
     }
 
-    /* ── Projects ── */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
-    }
+    /* Projects */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
     .project-card {
-      background: var(--clr-surface);
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow .2s, transform .2s;
-      display: flex;
-      flex-direction: column;
+      background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius);
+      padding: 22px; box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .2s;
+      display: flex; flex-direction: column;
     }
     .project-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .project-icon {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
-    }
-    .project-title {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-    .project-desc {
-      font-size: .88rem;
-      color: var(--clr-muted);
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 16px;
-    }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .project-icon { font-size: 1.6rem; }
+    .project-gh { font-size: .78rem; color: var(--clr-accent); font-weight: 500; }
+    .project-title { font-weight: 600; font-size: .97rem; margin-bottom: 8px; }
+    .project-desc { font-size: .86rem; color: var(--clr-muted); line-height: 1.65; flex: 1; margin-bottom: 14px; }
     .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      font-size: .75rem;
-      font-weight: 500;
-      background: var(--clr-tag);
-      color: var(--clr-muted);
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
 
-    /* ── Skills ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .skill-group {
-      background: var(--clr-surface);
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-    }
-    .skill-group-title {
-      font-size: .78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--clr-accent);
-      margin-bottom: 12px;
-    }
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+    .skill-group { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); }
+    .skill-group-title { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--clr-accent); margin-bottom: 12px; }
     .skill-items { display: flex; flex-wrap: wrap; gap: 7px; }
-    .skill-tag {
-      font-size: .82rem;
-      background: var(--clr-tag);
-      color: var(--clr-text);
-      padding: 4px 11px;
-      border-radius: 20px;
-      font-weight: 500;
-    }
+    .skill-tag { font-size: .82rem; background: var(--clr-tag); color: var(--clr-text); padding: 4px 11px; border-radius: 20px; font-weight: 500; }
 
-    /* ── Contact ── */
-    .contact-wrapper {
-      background: var(--clr-surface);
-      border: 1px solid var(--clr-border);
-      border-radius: var(--radius);
-      padding: 36px;
-      box-shadow: var(--shadow-sm);
+    /* Achievements */
+    .ach-list { display: flex; flex-direction: column; gap: 12px; }
+    .ach-card {
+      background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius);
+      padding: 18px 22px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 16px;
     }
-    .contact-intro {
-      font-size: .97rem;
-      color: var(--clr-muted);
-      margin-bottom: 28px;
-      line-height: 1.75;
-    }
-    .contact-links { display: flex; flex-wrap: wrap; gap: 14px; }
+    .ach-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .ach-text { font-size: .92rem; font-weight: 500; }
+    .ach-sub { font-size: .82rem; color: var(--clr-muted); margin-top: 2px; }
+
+    /* Contact */
+    .contact-wrapper { background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow-sm); }
+    .contact-intro { font-size: .97rem; color: var(--clr-muted); margin-bottom: 24px; line-height: 1.75; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
     .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 11px 22px;
-      border-radius: var(--radius);
-      border: 1px solid var(--clr-border);
-      font-size: .9rem;
-      font-weight: 500;
-      color: var(--clr-text);
-      background: var(--clr-bg);
-      transition: all .2s;
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 11px 20px; border-radius: var(--radius); border: 1px solid var(--clr-border);
+      font-size: .88rem; font-weight: 500; color: var(--clr-text); background: var(--clr-bg); transition: all .2s;
     }
-    .contact-link:hover {
-      background: var(--clr-accent-lt);
-      border-color: var(--clr-accent);
-      color: var(--clr-accent);
-      text-decoration: none;
-    }
-    .contact-link svg { width: 18px; height: 18px; }
+    .contact-link:hover { background: var(--clr-accent-lt); border-color: var(--clr-accent); color: var(--clr-accent); text-decoration: none; }
+    .contact-link svg { width: 17px; height: 17px; }
 
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--clr-border);
-      text-align: center;
-      padding: 32px 24px;
-      font-size: .83rem;
-      color: var(--clr-muted);
-      margin-top: 80px;
-    }
+    /* Footer */
+    footer { border-top: 1px solid var(--clr-border); text-align: center; padding: 32px 24px; font-size: .82rem; color: var(--clr-muted); margin-top: 80px; }
 
-    /* ── Responsive ── */
+    /* Responsive */
     @media (max-width: 640px) {
-      .hero { grid-template-columns: 1fr; gap: 28px; }
+      .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 48px; }
       .hero-name { font-size: 2rem; }
-      .avatar { width: 110px; height: 110px; font-size: 2.2rem; }
-      .hero { padding-top: 48px; }
+      .avatar { width: 110px; height: 110px; font-size: 2rem; }
+      .tl-item { grid-template-columns: 80px 1fr; }
+      .tl-date { font-size: .68rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-inner">
-      <span class="nav-logo">Long Nguyen</span>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Long Nguyen</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <section id="hero" class="hero">
+    <div>
+      <div class="hero-name">Long Nguyen</div>
+      <div class="hero-title">Software Engineer at Nokia · ML &amp; 5G Researcher</div>
+      <p class="hero-bio">
+        I work at Nokia on AI-driven 5G physical layer systems, applying machine learning to
+        real-world communication engineering. Concurrently pursuing dual Master's degrees at
+        <strong>Aalto University</strong> and <strong>Tampere University</strong>, specialising in
+        Machine Learning, Deep Learning, and Signal Processing.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:nguyenthelong072@gmail.com" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Get in touch
+        </a>
+        <a href="https://github.com/nntk072" target="_blank" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/nntk072/" target="_blank" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
     </div>
-  </nav>
+    <div class="avatar">LN</div>
+  </section>
 
-  <main>
-
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div>
-        <div class="hero-name">Long Nguyen</div>
-        <div class="hero-title">Software Engineer &amp; Researcher</div>
-        <p class="hero-bio">
-          I build robust, scalable software systems and explore research at the intersection of
-          machine learning and software engineering. I am passionate about turning complex
-          ideas into elegant, impactful solutions.
-        </p>
-        <div class="hero-links">
-          <a href="#contact" class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-            Get in touch
-          </a>
-          <a href="https://github.com/nntk072" target="_blank" class="btn btn-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/nntk072/" target="_blank" class="btn btn-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-        </div>
+  <!-- Info strip -->
+  <section>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-label">Location</div>
+        <div class="info-card-value">Espoo, Finland 🇫🇮</div>
       </div>
-      <div class="avatar">LN</div>
-    </section>
-
-    <!-- Info Cards -->
-    <section>
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="info-card-label">Location</div>
-          <div class="info-card-value">Finland 🇫🇮</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-label">Focus</div>
-          <div class="info-card-value">Software Engineering &amp; ML</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-label">Email</div>
-          <div class="info-card-value"><a href="mailto:your@email.com">your@email.com</a></div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-label">GitHub</div>
-          <div class="info-card-value"><a href="https://github.com/nntk072" target="_blank">nntk072</a></div>
-        </div>
+      <div class="info-card">
+        <div class="info-card-label">Current Role</div>
+        <div class="info-card-value">Software Engineer @ Nokia</div>
       </div>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="about-text">
-        <p>
-          I am a passionate software engineer with a strong interest in machine learning,
-          distributed systems, and building tools that make a real-world difference.
-          My work spans the full software development lifecycle — from system architecture
-          and backend APIs to data pipelines and ML model deployment.
-        </p>
-        <p>
-          I enjoy open-source collaboration, clean code, and continuous learning.
-          When I'm not coding, I explore the latest developments in AI research and
-          occasionally contribute to academic discussions on applied machine learning.
-        </p>
-        <p>
-          Feel free to reach out if you'd like to discuss projects, research, or opportunities!
-        </p>
+      <div class="info-card">
+        <div class="info-card-label">Focus Area</div>
+        <div class="info-card-value">ML · 5G · Deep Learning</div>
       </div>
-    </section>
+      <div class="info-card">
+        <div class="info-card-label">Email</div>
+        <div class="info-card-value"><a href="mailto:nguyenthelong072@gmail.com">nguyenthelong072@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Research -->
-    <section id="research">
-      <h2>Research &amp; Publications</h2>
-      <div class="pub-list">
-        <div class="pub-card">
-          <span class="pub-year">2024</span>
-          <div class="pub-info">
-            <div class="pub-title">Your Research Paper Title Goes Here</div>
-            <div class="pub-authors"><strong>Long Nguyen</strong>, Co-Author A, Co-Author B</div>
-            <div class="pub-venue">Conference / Journal Name, 2024</div>
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-text">
+      <p>
+        I am a software engineer at <strong>Nokia</strong>, working on AI-RAN — applying
+        machine learning to 5G physical layer (L1) systems with a focus on high-performance,
+        parallel computing using CUDA and C++. I am simultaneously completing dual Master's
+        programmes at <strong>Aalto University</strong> (Machine Learning, Data Science &amp; AI)
+        and <strong>Tampere University</strong> (Signal Processing &amp; Machine Learning).
+      </p>
+      <p>
+        My academic journey has taken me from computer vision (CycleGAN for medical imaging)
+        to photonics research (genetic algorithms for spatial light modulators) to
+        telecommunications ML (5G channel classification with deep learning). I thrive at
+        the intersection of theory and engineering.
+      </p>
+      <p>
+        Outside research I enjoy teaching — I have been a Teaching Assistant for
+        object-oriented programming courses, and I believe that explaining complex concepts
+        is the best way to deepen one's own understanding.
+      </p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Jan 2026<br/>— Now</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Software Engineer</div>
+          <div class="tl-company">
+            Nokia — Espoo, Finland
+            <span class="tl-badge">Full-time</span>
           </div>
-        </div>
-        <div class="pub-card">
-          <span class="pub-year">2023</span>
-          <div class="pub-info">
-            <div class="pub-title">Another Research Paper or Project Report</div>
-            <div class="pub-authors"><strong>Long Nguyen</strong>, Co-Author C</div>
-            <div class="pub-venue">Workshop / Thesis / Technical Report, 2023</div>
+          <ul class="tl-desc">
+            <li>Working on Nokia's AI-RAN project, focusing on the L1 aspect of 5G Mobile Communication.</li>
+            <li>Applying high-performance parallel computing techniques to real-time radio signal processing pipelines.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag">CUDA</span><span class="tag">C++</span>
+            <span class="tag">Parallel Computing</span><span class="tag">5G / L1</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <div class="project-icon">🤖</div>
-          <div class="project-title">ML Pipeline Automation</div>
-          <div class="project-desc">
-            End-to-end machine learning pipeline that automates data ingestion,
-            feature engineering, model training, and deployment to production.
-          </div>
-          <div class="tag-list">
-            <span class="tag">Python</span>
-            <span class="tag">MLflow</span>
-            <span class="tag">Docker</span>
-          </div>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Jul 2025<br/>— Dec 2025</div>
         </div>
-        <div class="project-card">
-          <div class="project-icon">🌐</div>
-          <div class="project-title">Distributed Web Scraper</div>
-          <div class="project-desc">
-            Scalable, fault-tolerant web scraping system with async workers,
-            rate limiting, and structured data extraction at scale.
-          </div>
-          <div class="tag-list">
-            <span class="tag">Python</span>
-            <span class="tag">Redis</span>
-            <span class="tag">Celery</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-icon">📊</div>
-          <div class="project-title">Real-time Analytics Dashboard</div>
-          <div class="project-desc">
-            Interactive dashboard for visualising high-frequency data streams
-            with live updates, alerting, and historical trend analysis.
-          </div>
-          <div class="tag-list">
-            <span class="tag">React</span>
-            <span class="tag">WebSocket</span>
-            <span class="tag">PostgreSQL</span>
+        <div class="tl-right">
+          <div class="tl-role">Trainee</div>
+          <div class="tl-company">Nokia — Espoo, Finland <span class="tl-badge">Full-time</span></div>
+          <ul class="tl-desc">
+            <li>Developed visualisation tools to support 5G communication system modelling and performance analysis.</li>
+            <li>Practiced Agile/Scrum workflows and CI pipeline development in a large engineering team.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag">CI/CD</span><span class="tag">Scrum</span><span class="tag">Visualisation</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <div class="skill-group-title">Languages</div>
-          <div class="skill-items">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">SQL</span>
-          </div>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Jan 2025<br/>— Jun 2025</div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Frameworks</div>
-          <div class="skill-items">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">scikit-learn</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Infrastructure</div>
-          <div class="skill-items">
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Kubernetes</span>
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">GitHub Actions</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Databases</div>
-          <div class="skill-items">
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">Redis</span>
+        <div class="tl-right">
+          <div class="tl-role">Master's Thesis Worker</div>
+          <div class="tl-company">Nokia — Espoo, Finland <span class="tl-badge">Full-time</span></div>
+          <ul class="tl-desc">
+            <li><em>Thesis:</em> 5G Physical Layer Channel Conditions Classification Using Machine Learning Techniques.</li>
+            <li>Built a deep learning model for 5G NR TDL/CDL channel condition classification.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag">TensorFlow</span><span class="tag">Deep Learning</span><span class="tag">5G NR</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-wrapper">
-        <p class="contact-intro">
-          I'm always open to discussing new projects, research collaborations, or career opportunities.
-          Drop me a message via email or connect with me on any of the platforms below.
-        </p>
-        <div class="contact-links">
-          <a href="mailto:your@email.com" class="contact-link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-            Email
-          </a>
-          <a href="https://github.com/nntk072" target="_blank" class="contact-link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/nntk072/" target="_blank" class="contact-link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Jan 2024<br/>— May 2024</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Solibri Autorun — Company Project</div>
+          <div class="tl-company">Tampere University / Solibri <span class="tl-badge">Project</span></div>
+          <ul class="tl-desc">
+            <li>Developed a custom GUI software to reduce XML syntax/semantic errors via constrained user inputs (checkboxes, radio buttons, file choosers).</li>
+            <li>Combined Agile Scrum, Kanban, Figma, Java Spring Boot, SonarQube, and Git workflows.</li>
+            <li>Awarded a €3 000 scholarship for the project.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">XML</span>
+            <span class="tag">Figma</span><span class="tag">SonarQube</span>
+          </div>
         </div>
       </div>
-    </section>
 
-  </main>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Sep 2023<br/>— May 2024</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Teaching Assistant</div>
+          <div class="tl-company">Tampere University <span class="tl-badge">Contract</span></div>
+          <ul class="tl-desc">
+            <li>Course: COMP.CS.140 Programming 3: Interfaces and Techniques (5 cr).</li>
+            <li>Ran Coditorium sessions, supported students, and evaluated exercises and projects.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag">Java</span><span class="tag">APIs</span><span class="tag">Teaching</span>
+          </div>
+        </div>
+      </div>
 
-  <footer>
-    <p>© 2024 Long Nguyen · Built with ♥ and vanilla HTML/CSS</p>
-  </footer>
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Dec 2023<br/>— Jan 2024</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Bachelor's Thesis Worker</div>
+          <div class="tl-company">Tampere University <span class="tl-badge">Apprenticeship</span></div>
+          <ul class="tl-desc">
+            <li><em>Thesis:</em> Transforming Frontal to Lateral: Chest X-ray View Conversion Using CycleGAN.</li>
+            <li>Built a CycleGAN model with UNet–ResNet architecture and Self-Organised Operational Layers.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag">TensorFlow</span><span class="tag">CycleGAN</span><span class="tag">Computer Vision</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Jan 2023<br/>— May 2023</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Research Trainee</div>
+          <div class="tl-company">Tampere University <span class="tl-badge">Apprenticeship</span></div>
+          <ul class="tl-desc">
+            <li>Project: Automatisation of image correction through the shaping of light.</li>
+            <li>Applied Zernike polynomials and 4F system to a spatial light modulator (SLM); used genetic algorithms to correct SLM output.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tag">MATLAB</span><span class="tag">Genetic Algorithms</span><span class="tag">Photonics</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-list">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree">Master of Science (Technology)</div>
+          <div class="edu-school">Aalto University — Espoo, Finland</div>
+          <div class="edu-meta">Aug 2024 – Dec 2026 · Specialisation: Machine Learning, Data Science &amp; AI<br/>Focus: ML Theory, Deep Learning, Reinforcement Learning, High-Performance Computing</div>
+          <span class="edu-gpa">GPA 4.0 / 5.0 · 75 ECTS</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree">Master's Programme in Computing Sciences</div>
+          <div class="edu-school">Tampere University — Tampere, Finland</div>
+          <div class="edu-meta">Aug 2024 – Jul 2026 · Major: Signal Processing &amp; Machine Learning · Minor: Communications &amp; Networking</div>
+          <span class="edu-gpa">GPA 4.43 / 5.0 · 123 ECTS</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree">Bachelor of Science and Engineering — Computing &amp; Electrical Engineering</div>
+          <div class="edu-school">Tampere University — Tampere, Finland</div>
+          <div class="edu-meta">Aug 2022 – Jun 2024 · Major: Signal Processing &amp; Machine Learning · Minor: Software Systems</div>
+          <span class="edu-gpa">GPA 4.51 / 5.0 · 180 ECTS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects &amp; Research</h2>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">📡</div>
+          <span class="project-gh">Nokia / Master's Thesis</span>
+        </div>
+        <div class="project-title">5G Channel Classification with Deep Learning</div>
+        <div class="project-desc">
+          Built a deep learning model to classify 5G NR TDL/CDL channel conditions,
+          enabling adaptive physical layer control in real 5G deployments.
+        </div>
+        <div class="tag-list">
+          <span class="tag">TensorFlow</span><span class="tag">5G NR</span><span class="tag">Deep Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🫁</div>
+          <span class="project-gh">Bachelor's Thesis</span>
+        </div>
+        <div class="project-title">Chest X-ray View Conversion — CycleGAN</div>
+        <div class="project-desc">
+          Frontal-to-lateral X-ray image synthesis using CycleGAN with UNet–ResNet
+          architecture and Self-Organised Operational Layers for enhanced feature extraction.
+        </div>
+        <div class="tag-list">
+          <span class="tag">TensorFlow</span><span class="tag">CycleGAN</span><span class="tag">Medical Imaging</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">💡</div>
+          <span class="project-gh">Research Trainee</span>
+        </div>
+        <div class="project-title">Optical Image Correction via Genetic Algorithms</div>
+        <div class="project-desc">
+          Applied Zernike polynomials in a 4F optical system combined with genetic
+          algorithms to automatically correct spatial light modulator (SLM) output.
+        </div>
+        <div class="tag-list">
+          <span class="tag">MATLAB</span><span class="tag">Genetic Algorithms</span><span class="tag">Photonics</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🏗️</div>
+          <a href="https://github.com/nntk072/SISU_GUI" target="_blank" class="project-gh">github.com/nntk072/SISU_GUI</a>
+        </div>
+        <div class="project-title">SISU GUI — Study Planning App</div>
+        <div class="project-desc">
+          Java/JavaFX group project for Tampere University's Programming 3 course.
+          A graphical study planner with JSON data handling for the SISU academic system.
+        </div>
+        <div class="tag-list">
+          <span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">JSON</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🔗</div>
+          <a href="https://github.com/nntk072/algorithms_for_graphs_course" target="_blank" class="project-gh">GitHub ↗</a>
+        </div>
+        <div class="project-title">Graph Algorithms — BFS, Ford-Fulkerson, PageRank</div>
+        <div class="project-desc">
+          Implementations and modifications of key graph algorithms including BFS,
+          the Ford-Fulkerson max-flow algorithm, and Google's PageRank, written in Python.
+        </div>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">Algorithms</span><span class="tag">Graph Theory</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🧩</div>
+          <span class="project-gh">Company Project · €3 000 Scholarship</span>
+        </div>
+        <div class="project-title">Solibri Autorun — Custom XML GUI Tool</div>
+        <div class="project-desc">
+          Developed a Java Spring Boot GUI to reduce XML configuration errors for Solibri's
+          building analysis tool, using Agile Scrum, Figma, and SonarQube.
+        </div>
+        <div class="tag-list">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">XML</span><span class="tag">Figma</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-items">
+          <span class="skill-tag">Python</span><span class="skill-tag">C++</span>
+          <span class="skill-tag">C</span><span class="skill-tag">Java</span>
+          <span class="skill-tag">MATLAB</span><span class="skill-tag">Scala</span>
+          <span class="skill-tag">R</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">ML / AI</div>
+        <div class="skill-items">
+          <span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">scikit-learn</span><span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">Reinforcement Learning</span><span class="skill-tag">CycleGAN</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">HPC &amp; Systems</div>
+        <div class="skill-items">
+          <span class="skill-tag">CUDA</span><span class="skill-tag">Parallel Computing</span>
+          <span class="skill-tag">Apache Spark</span><span class="skill-tag">Linux</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Web &amp; Backend</div>
+        <div class="skill-items">
+          <span class="skill-tag">React.js</span><span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Spring Boot</span><span class="skill-tag">Mocha</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Dev Tools</div>
+        <div class="skill-items">
+          <span class="skill-tag">Git</span><span class="skill-tag">SonarQube</span>
+          <span class="skill-tag">Apache</span><span class="skill-tag">Qt</span>
+          <span class="skill-tag">Xilinx SDK</span><span class="skill-tag">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Databases</div>
+        <div class="skill-items">
+          <span class="skill-tag">MongoDB</span><span class="skill-tag">SQLite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="ach-list">
+      <div class="ach-card">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <div class="ach-text">100% Tuition Fee Scholarship — Dual Master's Programme</div>
+          <div class="ach-sub">Tampere University &amp; Aalto University · 2024</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">💶</div>
+        <div>
+          <div class="ach-text">€3 000 Project Scholarship — Solibri Autorun</div>
+          <div class="ach-sub">Tampere University Company Project · 2024</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">📜</div>
+        <div>
+          <div class="ach-text">MATLAB Fundamentals Certification</div>
+          <div class="ach-sub">MathWorks</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon">⚡</div>
+        <div>
+          <div class="ach-text">244+ ECTS completed in 2 years</div>
+          <div class="ach-sub">More than double the standard 120 ECTS/2 years pace across both programmes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-wrapper">
+      <p class="contact-intro">
+        I'm open to research collaborations, software engineering opportunities, and
+        interesting conversations about ML and 5G. Feel free to reach out!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:nguyenthelong072@gmail.com" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          nguyenthelong072@gmail.com
+        </a>
+        <a href="https://github.com/nntk072" target="_blank" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          github.com/nntk072
+        </a>
+        <a href="https://www.linkedin.com/in/nntk072/" target="_blank" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Long Nguyen · Software Engineer &amp; ML Researcher · Espoo, Finland</p>
+</footer>
 
 </body>
 </html>
