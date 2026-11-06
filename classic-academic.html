@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Long Nguyen | Software Engineer &amp; Machine Learning Researcher</title>
+  <meta name="description" content="Long Nguyen — Software Engineer at Nokia (AI-RAN, 5G L1, CUDA, C++) and Double Master's student at Aalto University and Tampere University.">
+  <meta name="author" content="Long Nguyen">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/113982042?v=4">
+
+  <style>
+    /* Clean Typographic Academic Style (Inspired by alexjung.at & Jekyll Now) */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #333333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #0d6efd;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    a:hover {
+      color: #0a58ca;
+      text-decoration: underline;
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: 740px;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Masthead Header */
+    .wrapper-masthead {
+      margin-bottom: 36px;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 20px;
+    }
+
+    .masthead {
+      padding: 32px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .site-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #eaeaea;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      flex-shrink: 0;
+    }
+
+    .site-info h1 {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .site-info h1 a {
+      color: #111111;
+      text-decoration: none;
+    }
+    .site-info h1 a:hover {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+    .site-description {
+      margin: 4px 0 0;
+      font-size: 0.95rem;
+      color: #666666;
+      line-height: 1.35;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    nav a {
+      color: #555555;
+    }
+    nav a:hover {
+      color: #111111;
+      text-decoration: none;
+    }
+
+    /* Content Typography */
+    .lead-punch {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: #222222;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    h2 {
+      margin: 2.2rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid #eaeaea;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #111111;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      margin: 1.4rem 0 0.25rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #222222;
+    }
+
+    p {
+      margin: 0 0 1.1rem;
+      color: #333333;
+    }
+
+    ul {
+      margin: 0 0 1.2rem 1.2rem;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 0.45rem;
+    }
+
+    .item-meta {
+      font-size: 0.88rem;
+      color: #6c757d;
+      margin-bottom: 0.4rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: #f1f3f5;
+      color: #495057;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+    .tag-accent {
+      background: #e7f5ff;
+      color: #1c7ed6;
+      font-weight: 600;
+    }
+
+    .project-card {
+      padding: 14px 0;
+      border-bottom: 1px solid #f1f3f5;
+    }
+    .project-card:last-child {
+      border-bottom: none;
+    }
+
+    /* Contact & Social Bar */
+    .contact-bar {
+      margin-top: 2.5rem;
+      padding: 1.4rem;
+      background: #f8f9fa;
+      border-radius: 6px;
+      border: 1px solid #eaeaea;
+      font-size: 0.94rem;
+    }
+    .contact-bar span {
+      margin-right: 20px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      padding: 1.8rem 0;
+      border-top: 1px solid #eaeaea;
+      font-size: 0.85rem;
+      color: #777777;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .masthead {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 12px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MASTHEAD (Alexander Jung / Jekyll Now layout) -->
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead">
+        <div class="header-left">
+          <img class="site-avatar" src="https://avatars.githubusercontent.com/u/113982042?v=4" alt="Long Nguyen" />
+          <div class="site-info">
+            <h1 class="site-name"><a href="#">Long Nguyen</a></h1>
+            <p class="site-description">Software Engineer at Nokia &bull; M.Sc. Student at Aalto &amp; Tampere University</p>
+          </div>
+        </div>
+
+        <nav>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#research">Research &amp; Code</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <!-- MAIN BODY -->
+  <main class="container">
+    
+    <!-- Welcome & Philosophy -->
+    <p class="lead-punch">
+      <strong><em>High-performance computing meets 5G mobile networks and machine learning.</em></strong>
+    </p>
+
+    <section id="about">
+      <p>
+        Welcome! I am <strong>Long Nguyen</strong> (<a href="https://github.com/nntk072" target="_blank" rel="noopener">@nntk072</a>), a Software Engineer at <a href="https://www.nokia.com/" target="_blank" rel="noopener">Nokia</a> in Espoo, Finland, contributing to the <strong>AI-RAN project</strong> with a specialized focus on Layer 1 (L1) mobile communication acceleration using <strong>CUDA</strong>, <strong>C++</strong>, and high-parallel computing architectures.
+      </p>
+      <p>
+        I am currently pursuing dual Master's degrees in Finland:
+      </p>
+      <ul>
+        <li><strong>Aalto University:</strong> M.Sc. in Machine Learning, Data Science and Artificial Intelligence (Focus on ML theory, Deep Learning, Reinforcement Learning, and High-Performance Computing).</li>
+        <li><strong>Tampere University:</strong> M.Sc. in Computing Sciences (Signal Processing &amp; Machine Learning).</li>
+      </ul>
+      <p>
+        My technical work spans GPU acceleration for cellular physical layers, deep neural networks for 5G channel condition classification, reinforcement learning for trading and robotics, and generative vision models for medical radiography.
+      </p>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience">
+      <h2>Professional Experience</h2>
+
+      <div>
+        <h3>Software Engineer &mdash; Nokia</h3>
+        <div class="item-meta">Jan 2026 &ndash; Present &bull; Full-time &bull; Espoo, Finland</div>
+        <p>Developing in Nokia's core AI-RAN project focusing on Layer 1 (L1) mobile communication acceleration. Implementing real-time parallel compute pipelines with CUDA and C++.</p>
+        <div>
+          <span class="tag tag-accent">CUDA</span>
+          <span class="tag tag-accent">C++</span>
+          <span class="tag">AI-RAN</span>
+          <span class="tag">High Parallel Computing</span>
+          <span class="tag">5G Telecom</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3>Trainee &mdash; Nokia</h3>
+        <div class="item-meta">Jul 2025 &ndash; Dec 2025 &bull; Full-time &bull; Espoo, Finland</div>
+        <p>Built diagnostic and visualization tools for 5G communication system modeling, automated simulations, and performance evaluation within CI workflows.</p>
+        <div>
+          <span class="tag">5G System Modeling</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">Software Development</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3>Master’s Thesis Worker &mdash; Nokia</h3>
+        <div class="item-meta">Jan 2025 &ndash; Jun 2025 &bull; Espoo, Finland</div>
+        <p>Thesis Topic: <em>5G Physical Layer Channel Conditions Classification Using Machine Learning Techniques</em>. Built deep learning models using TensorFlow to classify 5G NR TDL/CDL channel condition profiles.</p>
+        <div>
+          <span class="tag tag-accent">TensorFlow</span>
+          <span class="tag">5G NR L1</span>
+          <span class="tag">TDL / CDL</span>
+          <span class="tag"><a href="https://github.com/nntk072/5g-nr-channel-condition" target="_blank" rel="noopener">Repository &rarr;</a></span>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3>Teaching Assistant &mdash; Tampere University</h3>
+        <div class="item-meta">Sep 2023 &ndash; May 2024 &bull; Tampere, Finland</div>
+        <p>Course: <em>COMP.CS.140 Programming 3: Interfaces and Techniques (5 cr)</em>. Guided undergraduate students through programming coditoriums and evaluated Java software design assignments.</p>
+        <div>
+          <span class="tag">Java</span>
+          <span class="tag">OOP &amp; APIs</span>
+          <span class="tag"><a href="https://github.com/nntk072/programming_3_course" target="_blank" rel="noopener">Course Repo &rarr;</a></span>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3>Research Trainee &mdash; Tampere University</h3>
+        <div class="item-meta">Jan 2023 &ndash; May 2023 &bull; Tampere, Finland</div>
+        <p>Project: <em>Automatization of image correction through the shaping of light</em> (Prof. Robert Flicker &amp; Dr. Rafael Barros). Applied Zernike polynomials and a 4F optical system to a Spatial Light Modulator (SLM) and optimized beam wavefronts using genetic algorithms in Matlab.</p>
+        <div>
+          <span class="tag">Matlab</span>
+          <span class="tag">Genetic Algorithms</span>
+          <span class="tag"><a href="https://github.com/nntk072/Research_training" target="_blank" rel="noopener">Research Repo &rarr;</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research & Selected Open Source Repositories -->
+    <section id="research">
+      <h2>Research &amp; Open Source Projects</h2>
+      <p>A selection of projects and research code from my <a href="https://github.com/nntk072" target="_blank" rel="noopener">GitHub (@nntk072)</a>:</p>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/nntk072/5g-nr-channel-condition" target="_blank" rel="noopener">5G-NR-Channel-Condition</a></h3>
+        <div class="item-meta">Nokia Master's Thesis &bull; TensorFlow, Jupyter Notebook</div>
+        <p>Deep learning models for classifying 5G Physical Layer channel condition profiles under TDL (Tapped Delay Line) and CDL (Clustered Delay Line) conditions.</p>
+        <div>
+          <span class="tag tag-accent">TensorFlow</span>
+          <span class="tag">5G NR L1</span>
+          <span class="tag">Channel Classification</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/nntk072/Quantitative-RL-Trading-System" target="_blank" rel="noopener">Quantitative-RL-Trading-System</a></h3>
+        <div class="item-meta">Reinforcement Learning &bull; Python</div>
+        <p>An end-to-end quantitative trading system using reinforcement learning policies for algorithmic portfolio and position optimization.</p>
+        <div>
+          <span class="tag">Reinforcement Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">Quantitative Finance</span>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <h3><a href="https://github.com/nntk072/Sanding_Robot_RL_optimizer" target="_blank" rel="noopener">Sanding Robot RL Optimizer</a></h3>
+        <div class="item-meta">Robotics &amp; Optimization &bull; Python</div>
+        <p>Reinforcement learning agent developed to optimize tool trajectory, contact pressure, and surface finishing efficiency in robotic sanding.</p>
+        <div>
+          <span class="tag">Robotics</span>
+          <span class="tag">Reinforcement Learning</span>
+          <span class="tag">Path Optimization</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="https://github.com/nntk072/Dense_disparity_estimation_via_local_stereo_matching" target="_blank" rel="noopener">Dense Disparity Estimation via Local Stereo Matching</a></h3>
+        <div class="item-meta">Signal Processing &bull; Stereo Vision</div>
+        <p>Local stereo matching algorithms estimating dense disparity maps for 3D depth perception and reconstruction.</p>
+        <div>
+          <span class="tag">Stereo Vision</span>
+          <span class="tag">Image Processing</span>
+          <span class="tag">3D Depth</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Chest X-ray View Conversion (CycleGAN)</h3>
+        <div class="item-meta">Bachelor's Thesis &bull; Tampere University (2023&ndash;2024)</div>
+        <p>Generative adversarial framework with UNet-ResNet architectures and Self-Organized Operational Layers synthetically generating lateral radiographs from frontal views.</p>
+        <div>
+          <span class="tag">CycleGAN</span>
+          <span class="tag">UNet-ResNet</span>
+          <span class="tag">Medical AI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Solibri Autorun Custom View (GUI Software)</h3>
+        <div class="item-meta">Industry Project &bull; Awarded 3,000&euro; Scholarship (Jan&ndash;May 2024)</div>
+        <p>Guided GUI eliminating XML errors with automated dynamic directory resolution. Implemented in Java Spring Boot with SonarQube, Figma, and Scrum.</p>
+        <div>
+          <span class="tag">Java Spring Boot</span>
+          <span class="tag">SonarQube</span>
+          <span class="tag">3,000&euro; Scholarship</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+
+      <div>
+        <h3>Aalto University</h3>
+        <div class="item-meta">Aug 2024 &ndash; Dec 2026 &bull; Espoo, Finland</div>
+        <p><strong>Master of Science (Technology)</strong> in Machine Learning, Data Science and Artificial Intelligence.<br>
+        GPA: <strong>4.0 / 5.0</strong> (75 ECTS earned). Awarded 100% full tuition scholarship.</p>
+      </div>
+
+      <div style="margin-top: 1.2rem;">
+        <h3>Tampere University</h3>
+        <div class="item-meta">Aug 2024 &ndash; Jul 2026 &bull; Tampere, Finland</div>
+        <p><strong>Master's Programme in Computing Sciences</strong> &bull; Major: Signal Processing and Machine Learning.<br>
+        GPA: <strong>4.43 / 5.0</strong> (123 ECTS earned). Awarded 100% full tuition scholarship.</p>
+      </div>
+
+      <div style="margin-top: 1.2rem;">
+        <h3>Tampere University</h3>
+        <div class="item-meta">Aug 2022 &ndash; Jun 2024 &bull; Tampere, Finland</div>
+        <p><strong>Bachelor of Science and Engineering</strong> (Computing &amp; Electrical Engineering Track).<br>
+        GPA: <strong>4.51 / 5.0</strong> (180 ECTS). Pace: Completed 244+ credits in 2 years (2x normal study pace).</p>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills">
+      <h2>Technical Stack</h2>
+      <p><strong>Programming &amp; Systems:</strong> CUDA, C++, C, Python, Java, Scala, Matlab, R</p>
+      <p><strong>Machine Learning &amp; AI:</strong> TensorFlow, Deep Neural Networks, CycleGAN, UNet, ResNet, Reinforcement Learning</p>
+      <p><strong>5G Telecom &amp; Hardware:</strong> AI-RAN, 5G L1 Physical Layer, TDL/CDL Modeling, Xilinx SDK, Qt</p>
+      <p><strong>Developer Tools &amp; Web:</strong> Git, CI/CD, SonarQube, React.js, Node.js, Spring Boot, MongoDB, SQLite</p>
+    </section>
+
+    <!-- Contact Details -->
+    <section id="contact">
+      <div class="contact-bar">
+        <strong>Contact &amp; Profiles:</strong><br>
+        <span>Email: <a href="mailto:nguyenthelong072@gmail.com">nguyenthelong072@gmail.com</a></span>
+        <span>Phone: (+358) 408589351</span>
+        <span>Location: Tampere / Espoo, Finland</span><br>
+        <span>GitHub: <a href="https://github.com/nntk072" target="_blank" rel="noopener">github.com/nntk072</a></span>
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/the-long-nguyen/" target="_blank" rel="noopener">LinkedIn Profile</a></span>
+      </div>
+    </section>
+
+    <footer>
+      &copy; Long Nguyen &bull; Hosted on GitHub Pages &bull; <a href="https://github.com/nntk072" target="_blank" rel="noopener">github.com/nntk072</a>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Long Nguyen</title>
+  <meta name="description" content="Long Nguyen — Software Engineer at Nokia (AI-RAN, L1 5G, CUDA, C++) & Double Master's student in Machine Learning and Computing Sciences at Aalto University and Tampere University.">
+  <meta name="author" content="Long Nguyen">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F5EFE1">
+
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Palette — Warm cream academic editorial palette */
+      --bg:          #F5EFE1;              /* warm cream paper */
+      --ink:         #1E2A1A;              /* deep green-tinted near-black */
+      --ink-soft:    #2E3A29;              /* secondary body text */
+      --muted:       #5C6455;              /* metadata & labels */
+      --accent:      #4B6F44;              /* Green Satin brand */
+      --accent-deep: #3A5735;              /* interactive links */
+      --edge:        rgba(75,111,68,.75);  /* chip / card borders */
+      --rule:        rgba(30,42,26,.16);   /* section dividers */
+      --rule-soft:   rgba(30,42,26,.09);   /* item dividers */
+
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Arial", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+      /* Type scale */
+      --fs-1: .8125rem;    /* 13px labels, chips, footer */
+      --fs-2: .9375rem;    /* 15px metadata, timeline dates */
+      --fs-3: 1rem;        /* 16px body prose */
+      --fs-4: 1.125rem;    /* 18px item titles */
+      --fs-5: clamp(1.6rem, 1.3rem + 1.2vw, 2.05rem); /* name / primary header */
+
+      --measure: 38rem;
+      --gutter: 1.5rem;
+      --stick: 3rem;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 106.25%;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: var(--fs-3);
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3 {
+      text-wrap: balance;
+    }
+    p {
+      text-wrap: pretty;
+    }
+
+    a {
+      color: var(--accent-deep);
+      text-decoration-color: rgba(75, 111, 68, .55);
+      text-decoration-thickness: .06em;
+      text-underline-offset: .17em;
+      transition: color .15s ease, text-decoration-color .15s ease;
+    }
+    a:hover {
+      color: var(--accent);
+      text-decoration-color: currentColor;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    [id] {
+      scroll-margin-top: 1.5rem;
+    }
+
+    /* Container Shell */
+    .page {
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2rem) 4rem;
+    }
+
+    main {
+      max-width: var(--measure);
+    }
+
+    /* Header & Identity (Sidebar on wide screens) */
+    .identity {
+      margin-bottom: 2.5rem;
+    }
+
+    .avatar-wrapper {
+      width: 140px;
+      height: 140px;
+      border-radius: 4px;
+      margin-bottom: 1.2rem;
+      background: rgba(75, 111, 68, 0.12);
+      border: 1px solid var(--edge);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 4px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--edge);
+    }
+
+    .identity h1 {
+      margin: 0 0 .3rem;
+      font-size: var(--fs-5);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+    }
+
+    .identity .role {
+      margin: 0 0 .25rem;
+      font-size: var(--fs-2);
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    .identity .place {
+      margin: 0 0 1.2rem;
+      font-size: var(--fs-1);
+      color: var(--muted);
+    }
+
+    .contact {
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      font-size: var(--fs-2);
+    }
+    .contact li {
+      margin: .25rem 0;
+    }
+
+    .site-nav {
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .site-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.2rem;
+      font-size: var(--fs-2);
+      font-weight: 600;
+    }
+
+    /* Section Structure */
+    .sec {
+      border-top: 1px solid var(--rule);
+      padding-top: 2rem;
+      margin-top: 2.5rem;
+    }
+    .sec:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .sec > h2 {
+      margin: 0 0 1.2rem;
+      font-size: var(--fs-4);
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: .88rem;
+      letter-spacing: .08em;
+    }
+
+    .prose p {
+      margin: 0 0 1rem;
+      text-align: justify;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+    .prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Key-Value Lists (News, Fast Facts) */
+    .rows {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .rows > li {
+      padding: .6rem 0;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .rows > li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .kv > li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: baseline;
+      column-gap: 1.2rem;
+    }
+    .key {
+      font-family: var(--mono);
+      font-size: var(--fs-1);
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .val {
+      font-size: var(--fs-3);
+      color: var(--ink);
+    }
+
+    /* Entries (Experience & Education) */
+    .entry {
+      margin-bottom: 1.75rem;
+    }
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .2rem 1rem;
+      margin-bottom: .25rem;
+    }
+    .entry-head h3 {
+      margin: 0;
+      font-size: var(--fs-4);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .entry-head .meta {
+      font-family: var(--mono);
+      font-size: var(--fs-1);
+      color: var(--muted);
+    }
+    .entry .sub-head {
+      margin: 0 0 .4rem;
+      font-size: var(--fs-2);
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .entry ul:not(.links) {
+      margin: .4rem 0 0;
+      padding-left: 1.2rem;
+      font-size: var(--fs-2);
+      color: var(--ink-soft);
+    }
+    .entry ul:not(.links) li {
+      margin: .25rem 0;
+    }
+    .entry ul:not(.links) li::marker {
+      color: var(--accent);
+    }
+
+    /* Publication & Project Items */
+    .pubs {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .pubs > li {
+      margin: 0 0 1.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .pubs > li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .pub-title {
+      margin: 0 0 .25rem;
+      font-size: var(--fs-4);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .venue {
+      margin: 0 0 .4rem;
+      font-size: var(--fs-2);
+      color: var(--ink-soft);
+    }
+    .desc {
+      margin: 0 0 .5rem;
+      font-size: var(--fs-2);
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    /* Chips & Badges */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      list-style: none;
+      margin: .5rem 0 0;
+      padding: 0;
+    }
+    .chip {
+      display: inline-block;
+      padding: .2rem .55rem;
+      border: 1px solid var(--edge);
+      border-radius: 2px;
+      font-size: var(--fs-1);
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--accent-deep);
+      background: transparent;
+      line-height: 1.25;
+      transition: all .15s ease;
+    }
+    .chip:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+    .chip.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+    .chip.primary:hover {
+      background: var(--accent-deep);
+      border-color: var(--accent-deep);
+      color: var(--bg);
+    }
+    .badge {
+      display: inline-block;
+      padding: .2rem .55rem;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background: rgba(75, 111, 68, .14);
+      font-size: var(--fs-1);
+      font-weight: 600;
+      color: var(--accent-deep);
+      line-height: 1.25;
+    }
+
+    /* Skills Grid */
+    .skill-block {
+      margin-bottom: 1.2rem;
+    }
+    .skill-title {
+      font-size: var(--fs-1);
+      font-family: var(--mono);
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin: 0 0 .3rem;
+    }
+    .skill-tags {
+      font-size: var(--fs-2);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* Responsive Grid for Desktop (Sticky 2-Column like Khoa's site) */
+    @media (min-width: 36em) {
+      .kv > li {
+        grid-template-columns: 7.5rem minmax(0, 1fr);
+      }
+    }
+
+    @media (min-width: 60em) {
+      .page {
+        max-width: 58rem;
+        display: grid;
+        grid-template-columns: minmax(0, 17.5rem) minmax(0, var(--measure));
+        column-gap: clamp(2.5rem, 5vw, 4.5rem);
+        align-items: start;
+        justify-content: center;
+      }
+      .identity {
+        position: sticky;
+        top: var(--stick);
+        max-height: calc(100vh - var(--stick) - 1.5rem);
+        overflow-y: auto;
+        padding-right: .5rem;
+        margin-bottom: 0;
+      }
+    }
+
+    /* Print Stylesheet */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 10pt;
+      }
+      .page {
+        display: block;
+        max-width: none;
+        padding: 0;
+      }
+      .identity {
+        position: static;
+        margin-bottom: 1.5rem;
+      }
+      .site-nav, .avatar-wrapper {
+        display: none;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      .chip, .badge {
+        border: 1px solid #999;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- IDENTITY (SIDEBAR ON DESKTOP) -->
+    <header class="identity">
+      <!-- Portrait / Avatar from GitHub -->
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/113982042?v=4" alt="Long Nguyen" width="140" height="140">
+
+      <h1>Long Nguyen</h1>
+      <p class="role">
+        Software Engineer, <strong>Nokia</strong> (AI-RAN)<br>
+        M.Sc. Student at <strong>Aalto University</strong> &amp; <strong>Tampere University</strong>
+      </p>
+      <p class="place">Tampere &amp; Espoo, Finland</p>
+
+      <ul class="contact" role="list">
+        <li><a href="mailto:nguyenthelong072@gmail.com">nguyenthelong072@gmail.com</a></li>
+        <li>Tel: (+358) 408589351</li>
+        <li><a href="https://github.com/nntk072" target="_blank" rel="noopener">GitHub: nntk072</a></li>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+
+      <nav class="site-nav" aria-label="Sections">
+        <ul role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN BODY CONTENT -->
+    <main id="main">
+
+      <!-- ABOUT -->
+      <section class="sec" id="about">
+        <h2>About</h2>
+        <div class="prose">
+          <p>
+            I am a Software Engineer at <a href="https://www.nokia.com/" target="_blank" rel="noopener">Nokia</a> in Espoo, working on the AI-RAN project with a focus on Layer 1 (L1) mobile communication acceleration using <strong>CUDA</strong>, <strong>C++</strong>, and high-performance parallel computing.
+          </p>
+          <p>
+            Concurrently, I am completing dual Master's degrees: pursuing Computing Sciences (Signal Processing &amp; Machine Learning) at <a href="https://www.tuni.fi/en" target="_blank" rel="noopener">Tampere University</a> and finishing my second year in Machine Learning, Data Science &amp; Artificial Intelligence at <a href="https://www.aalto.fi/en" target="_blank" rel="noopener">Aalto University</a>.
+          </p>
+          <p>
+            My background combines high-performance system programming, deep learning for wireless communications (channel classification for 5G NR TDL/CDL), generative vision models (CycleGAN with UNet-ResNet for chest radiography conversion), and computational optics optimization using genetic algorithms.
+          </p>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section class="sec" id="news">
+        <h2>News</h2>
+        <ul class="rows kv" role="list">
+          <li>
+            <span class="key">Jan 2026</span>
+            <span class="val">Promoted to full-time <strong>Software Engineer</strong> at Nokia in Espoo, developing AI-RAN Layer 1 acceleration using CUDA and C++.</span>
+          </li>
+          <li>
+            <span class="key">Jun 2025</span>
+            <span class="val">Completed Master's thesis at Nokia on <em>5G Physical Layer Channel Conditions Classification Using Machine Learning Techniques</em>.</span>
+          </li>
+          <li>
+            <span class="key">May 2024</span>
+            <span class="val">Awarded 3,000€ project scholarship for the <em>Solibri Autorun Custom View</em> software development project.</span>
+          </li>
+          <li>
+            <span class="key">Aug 2024</span>
+            <span class="val">Awarded <strong>100% full tuition scholarships</strong> for Master's programmes at both Tampere University and Aalto University.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="sec" id="experience">
+        <h2>Experience</h2>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Software Engineer</h3>
+            <span class="meta">Jan 2026 &ndash; Present</span>
+          </div>
+          <div class="sub-head">Nokia &bull; Espoo, Finland (Full-time)</div>
+          <ul>
+            <li>Engineered software for Nokia's AI-RAN project, focusing on Layer 1 (L1) acceleration in 5G mobile communications.</li>
+            <li>Implemented high-performance parallel compute kernels using CUDA and C++ for real-time telecom processing.</li>
+          </ul>
+          <ul class="links" role="list">
+            <li><span class="badge">CUDA</span></li>
+            <li><span class="badge">C++</span></li>
+            <li><span class="badge">AI-RAN</span></li>
+            <li><span class="badge">High Parallel Computing</span></li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Trainee</h3>
+            <span class="meta">Jul 2025 &ndash; Dec 2025</span>
+          </div>
+          <div class="sub-head">Nokia &bull; Espoo, Finland (Full-time)</div>
+          <ul>
+            <li>Developed visualization and diagnostic tools supporting 5G communication system modeling and performance evaluation.</li>
+            <li>Integrated automated CI pipelines and worked within an Agile Scrum development framework.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Master's Thesis Worker</h3>
+            <span class="meta">Jan 2025 &ndash; Jun 2025</span>
+          </div>
+          <div class="sub-head">Nokia &bull; Espoo, Finland (Full-time)</div>
+          <ul>
+            <li>Thesis: <em>5G Physical Layer Channel Conditions Classification Using Machine Learning Techniques</em>.</li>
+            <li>Built deep learning models for classification of 5G NR TDL and CDL channel environments using TensorFlow.</li>
+          </ul>
+          <ul class="links" role="list">
+            <li><span class="chip primary">Thesis</span></li>
+            <li><span class="badge">TensorFlow</span></li>
+            <li><span class="badge">5G NR L1</span></li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Teaching Assistant</h3>
+            <span class="meta">Sep 2023 &ndash; May 2024</span>
+          </div>
+          <div class="sub-head">Tampere University &bull; Tampere, Finland</div>
+          <ul>
+            <li>Course: <em>COMP.CS.140 Programming 3: Interfaces and Techniques (5 cr)</em>.</li>
+            <li>Supervised coditoriums, assisted undergraduate students, and evaluated exercises in Java and object-oriented API design.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Research Trainee</h3>
+            <span class="meta">Jan 2023 &ndash; May 2023</span>
+          </div>
+          <div class="sub-head">Tampere University &bull; Tampere, Finland</div>
+          <ul>
+            <li>Project: <em>Automatization of image correction through the shaping of light</em> (Prof. Robert Flicker, Dr. Rafael Barros).</li>
+            <li>Applied Zernike polynomials and a 4F optical system to a Spatial Light Modulator (SLM); optimized beam outputs using genetic algorithms in Matlab.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- RESEARCH & PROJECTS -->
+      <section class="sec" id="research">
+        <h2>Research &amp; Projects</h2>
+        <ol class="pubs">
+          <li>
+            <p class="pub-title">5G Physical Layer Channel Conditions Classification Using Machine Learning</p>
+            <p class="venue">Nokia Master's Thesis, 2025. Espoo, Finland.</p>
+            <p class="desc">
+              Designed deep learning models using TensorFlow to classify channel condition profiles in 5G NR, supporting adaptive transmission under complex multi-path fading conditions (TDL &amp; CDL).
+            </p>
+            <ul class="links" role="list">
+              <li><span class="chip primary">Master's Thesis</span></li>
+              <li><span class="badge">TensorFlow</span></li>
+              <li><span class="badge">5G NR Physical Layer</span></li>
+            </ul>
+          </li>
+
+          <li>
+            <p class="pub-title">Transforming Frontal to Lateral: Chest X-ray View Conversion Using CycleGAN</p>
+            <p class="venue">Tampere University Bachelor's Thesis, 2024.</p>
+            <p class="desc">
+              Developed a generative deep learning pipeline using CycleGAN with UNet-ResNet architectures and Self-Organized Operational Layers to generate realistic lateral views from standard frontal chest X-rays.
+            </p>
+            <ul class="links" role="list">
+              <li><span class="chip primary">Bachelor's Thesis</span></li>
+              <li><span class="badge">CycleGAN</span></li>
+              <li><span class="badge">UNet-ResNet</span></li>
+              <li><span class="badge">Medical Imaging</span></li>
+            </ul>
+          </li>
+
+          <li>
+            <p class="pub-title">Solibri Autorun Custom View</p>
+            <p class="venue">Industry Collaboration Project &bull; Solibri, 2024.</p>
+            <p class="desc">
+              Constructed a guided GUI to eliminate syntax and semantic XML configuration errors, incorporating automated dynamic directory loading. Developed in Java Spring Boot with SonarQube, Figma, and Scrum.
+            </p>
+            <ul class="links" role="list">
+              <li><span class="badge">Scholarship Award (3,000&euro;)</span></li>
+              <li><span class="badge">Java Spring Boot</span></li>
+              <li><span class="badge">Figma / UX</span></li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="sec" id="education">
+        <h2>Education</h2>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Aalto University</h3>
+            <span class="meta">Aug 2024 &ndash; Dec 2026</span>
+          </div>
+          <div class="sub-head">Master of Science (Technology) &bull; Espoo, Finland</div>
+          <ul>
+            <li><strong>Specialization:</strong> Machine Learning, Data Science and Artificial Intelligence.</li>
+            <li>Focus on ML theory, Deep Learning, Reinforcement Learning, and High-Performance Computing.</li>
+            <li><strong>GPA:</strong> 4.0 / 5.0 (75 ECTS earned to date).</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Tampere University</h3>
+            <span class="meta">Aug 2024 &ndash; Jul 2026</span>
+          </div>
+          <div class="sub-head">Master's Programme in Computing Sciences &bull; Tampere, Finland</div>
+          <ul>
+            <li><strong>Major:</strong> Signal Processing and Machine Learning (Advanced Audio, Image, Signal Processing).</li>
+            <li><strong>Minor:</strong> Communications and Networking, Software Design.</li>
+            <li><strong>GPA:</strong> 4.43 / 5.0 (123 ECTS earned).</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Tampere University</h3>
+            <span class="meta">Aug 2022 &ndash; Jun 2024</span>
+          </div>
+          <div class="sub-head">Bachelor of Science and Engineering &bull; Tampere, Finland</div>
+          <ul>
+            <li>Computing &amp; Electrical Engineering Track (Major in Signal Processing &amp; ML, Minor in Software Systems).</li>
+            <li><strong>GPA:</strong> 4.51 / 5.0 (180 ECTS). Completed in 2 years (244+ total credits across degrees).</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="sec" id="skills">
+        <h2>Technical Skills</h2>
+
+        <div class="skill-block">
+          <div class="skill-title">Languages &amp; Parallel Computing</div>
+          <div class="skill-tags">CUDA, C++, C, Python, Java, Scala, Matlab, R</div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-title">Frameworks &amp; Deep Learning</div>
+          <div class="skill-tags">TensorFlow, PyTorch concepts, Spark, Spring Boot, React.js, Node.js</div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-title">Telecom &amp; Hardware Tools</div>
+          <div class="skill-tags">AI-RAN, 5G Physical Layer (L1), TDL/CDL Channel Modeling, Xilinx SDK, Qt</div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-title">DevTools &amp; Databases</div>
+          <div class="skill-tags">Git, CI/CD, SonarQube, MongoDB, SQLite, Apache, Figma, Agile / Scrum</div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-title">Languages Spoken</div>
+          <div class="skill-tags">English (Professional), Vietnamese (Bilingual), Finnish (Elementary)</div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: var(--fs-1); color: var(--muted);">
+        <p style="margin: 0;">&copy; Long Nguyen. Hosted on GitHub Pages &bull; Academic style inspired by Finnish researchers.</p>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
