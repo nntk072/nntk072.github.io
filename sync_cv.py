@@ -164,13 +164,17 @@ def parse_html(html_path: Path) -> dict:
     if proj_section:
         proj_items = re.findall(r'<div class="timeline-item">(.*?)</div>\s*</div>\s*</div>', proj_section.group(0), re.DOTALL)
         for p in proj_items:
-            role_m = re.search(r'<span class="timeline-role">(.*?)</span>', p, re.DOTALL)
+            role_m = re.search(r'<span class="timeline-role">(.*?)</span>\s*<span class="timeline-date">', p, re.DOTALL)
             date_m = re.search(r'<span class="timeline-date">(.*?)</span>', p, re.DOTALL)
             comp_m = re.search(r'<div class="timeline-company">(.*?)</div>', p, re.DOTALL)
             desc_m = re.search(r'<div class="timeline-body">\s*<p>(.*?)</p>', p, re.DOTALL)
             link_m = re.search(r'<a href="(https://github.com/[^"]+)"', p)
 
-            title = clean_text(role_m.group(1)) if role_m else ""
+            role_raw = role_m.group(1) if role_m else ""
+            badge_m = re.search(r'<span class="timeline-badge">(.*?)</span>', role_raw, re.DOTALL)
+            badge = clean_text(badge_m.group(1)) if badge_m else ""
+            # Remove badge span from title text
+            title = clean_text(re.sub(r'<span class="timeline-badge">.*?</span>', '', role_raw, flags=re.DOTALL))
             date = clean_text(date_m.group(1)) if date_m else ""
             comp = clean_text(comp_m.group(1)) if comp_m else ""
             desc = clean_text(desc_m.group(1)) if desc_m else ""
@@ -183,7 +187,8 @@ def parse_html(html_path: Path) -> dict:
                 "category": comp,
                 "desc": desc,
                 "link": link,
-                "tags": tags
+                "tags": tags,
+                "badge": badge
             })
 
     # Extract Skills from #skills
@@ -287,9 +292,9 @@ def generate_latex(data: dict) -> str:
 \newcommand{\resumeTrioHeading}[3]{
   \item\small{
     \begin{tabular*}{0.96\textwidth}[t]{
-      p{0.43\linewidth}@{\extracolsep{\fill}}p{0.39\linewidth}@{\extracolsep{\fill}}r
+      l@{\extracolsep{\fill}}r
     }
-      \textbf{#1} & \textit{#2} & #3
+      \textbf{#1} & #3
     \end{tabular*}
   }
 }
@@ -428,10 +433,13 @@ def generate_latex(data: dict) -> str:
 
             tex.append(r"""    \resumeTrioHeading{""" + heading + r"""}{}{""" + dates + r"""}""")
             tex.append(r"""      \resumeItemListStart{}""")
-            if tags_str:
-                tex.append(r"""        \resumeItem{Tags: """ + tags_str + r"""}""")
             if p.get("desc"):
                 tex.append(r"""        \resumeItem{""" + tex_escape(p["desc"]) + r"""}""")
+            if tags_str:
+                tex.append(r"""        \resumeItem{Skills: """ + tags_str + r"""}""")
+            badge = p.get("badge", "")
+            if badge and re.search(r'€|Scholarship|Award', badge):
+                tex.append(r"""        \resumeItem{Scholarship of the project: """ + tex_escape(badge) + r"""}""")
             tex.append(r"""      \resumeItemListEnd{}""")
 
         tex.append(r"""  \resumeHeadingListEnd{}
