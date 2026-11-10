@@ -447,6 +447,7 @@ section {
   padding: 24px;
   box-shadow: var(--card-shadow);
   transition: all 0.25s ease;
+  min-width: 0;
 }
 .timeline-content:hover {
   border-color: var(--border-accent);
@@ -508,6 +509,11 @@ section {
   padding: 4px 10px;
   border-radius: 6px;
   border: 1px solid var(--border);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  display: inline-block;
 }
 
 /* ─── Project Timeline Links & Actions ─── */
