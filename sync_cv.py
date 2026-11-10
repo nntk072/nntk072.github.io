@@ -278,7 +278,7 @@ def generate_latex(data: dict) -> str:
 
 \newcommand{\resumeSectionType}[3]{
   \item\begin{tabular*}{0.96\textwidth}[t]{
-    p{0.25\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+    p{0.18\linewidth}p{0.02\linewidth}p{0.76\linewidth}
   }
     \textbf{#1} & #2 & #3
   \end{tabular*}\vspace{-2pt}
