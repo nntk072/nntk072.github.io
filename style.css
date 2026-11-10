@@ -631,6 +631,7 @@ section {
   padding: 22px;
   box-shadow: var(--card-shadow);
   transition: all 0.2s ease;
+  min-width: 0;
 }
 .skill-card:hover {
   border-color: var(--border-accent);
@@ -648,6 +649,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: flex-start;
 }
 .skill-pill {
   font-size: 0.85rem;
@@ -657,6 +659,11 @@ section {
   background: var(--tag-bg);
   color: var(--text-main);
   border: 1px solid var(--border);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  display: inline-block;
 }
 
 /* ─── Achievements Section ─── */
@@ -752,6 +759,12 @@ footer {
   .badge-status { margin-left: auto; margin-right: auto; }
   .hero-role { justify-content: center; }
   .nav-menu { display: none; }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-card {
+    max-width: 100%;
+  }
 }
 
 /* ─── Print Stylesheet (ATS & PDF Generation) ─── */
