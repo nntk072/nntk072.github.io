@@ -1,4 +1,4 @@
-%-------------------------
+﻿%-------------------------
 % Rezume, a latex resume template for developers
 % Synchronized automatically from index.html via sync_cv.py
 %-------------------------
@@ -40,16 +40,19 @@
 \raggedright{}
 %------------------------------------------
 
+
 %--------SECTIONING COMMANDS---------
 \titleformat{\section}
   {\scshape\large}{}
     {0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
 %-------------------------------------
 
+
 %--------REDEFINITIONS----------------
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand{\ULdepth}{2pt}
 %-------------------------------------
+
 
 %--------CUSTOM COMMANDS--------------
 \newcommand{\resumeItem}[1]{
@@ -72,7 +75,7 @@
     \begin{tabular*}{0.96\textwidth}[t]{
       p{0.43\linewidth}@{\extracolsep{\fill}}p{0.39\linewidth}@{\extracolsep{\fill}}r
     }
-      \textbf{#1} & \textit{#2} & #3
+      \textbf{#1} & \\textit{#2} & #3
     \end{tabular*}
   }
 }
@@ -91,18 +94,20 @@
 \newcommand{\resumeHeadingListEnd}{\end{itemize}}
 %-------------------------------------------
 
+
 \begin{document}
 
 %-----------CONTACT DETAILS------------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Huge Long Nguyen \vspace{2pt}} &
   Location: Tampere / Espoo, Finland \\
-  \href{https://linkedin.com/in/long-nguyen-9b299a197/}{\uline{LinkedIn}} $|$
+  \href{https://linkedin.com/in/long-nguyen-9b299a197/}{\uline{LinkedIn}} $|$%
   \href{https://github.com/nntk072}{\uline{GitHub}} &
-  Email: \href{mailto:nguyenthelong072@gmail.com}{\uline{nguyenthelong072@gmail.com}} $|$
+  Email: \href{mailto:nguyenthelong072@gmail.com}{\uline{nguyenthelong072@gmail.com}} $|$%
   Mobile: (+358) 408589351 \\
 \end{tabular*}
 %--------------------------------------------
+
 
 %-----------SUMMARY--------------------------
 \section{Summary}
@@ -111,95 +116,125 @@ I am a Software Engineer at Nokia working on AI-RAN, focusing on the L1 aspect o
 }
 %--------------------------------------------
 
+
 %-----------EXPERIENCE-----------------------
 \section{Experience}
-
-\resumeHeadingListStart{}
-  \resumeQuadHeading{Software Engineer --- AI-RAN (5G L1)}{Jan 2026 -- Present}
-  {Nokia}{Espoo, Finland}
+  \resumeHeadingListStart{}
+  \resumeQuadHeading{Software Engineer}{Jan 2026 -- Now}
+  {Nokia - Full time}{Espoo, Finland}
     \resumeItemListStart{}
       \resumeItem{Developing high-performance L1 physical layer components for Nokia's next-generation AI-RAN platform.}
       \resumeItem{Implementing high-parallel computing kernels in CUDA and C++ for real-time 5G signal processing.}
       \resumeItem{Optimising latency and throughput constraints in mobile communication systems.}
       \resumeItem{Skills: CUDA, C++20, 5G NR L1, Parallel Computing, AI-RAN}
     \resumeItemListEnd{}
-\resumeHeadingListEnd{}
-\resumeHeadingListStart{}
-  \resumeQuadHeading{Trainee --- System Modelling \& Analytics}{Jul 2025 -- Dec 2025}
-  {Nokia}{Espoo, Finland}
+  \resumeQuadHeading{Trainee}{July 2025 -- December 2025}
+  {Nokia - Full time}{Espoo, Finland}
     \resumeItemListStart{}
-      \resumeItem{Developed visualization tools and automated dashboards for 5G system modelling and performance analysis.}
-      \resumeItem{Integrated continuous integration (CI) workflows and contributed in an Agile Scrum engineering team.}
-      \resumeItem{Skills: CI/CD, Visualization, Scrum, Python}
+      \resumeItem{Developed visualization tools to support 5G communication system modeling and performance analysis.}
+      \resumeItem{Skills: CI development, Scrum, Software Development skill}
     \resumeItemListEnd{}
-\resumeHeadingListEnd{}
-\resumeHeadingListStart{}
-  \resumeQuadHeading{Master's Thesis Researcher}{Jan 2025 -- Jun 2025}
-  {Nokia}{Espoo, Finland}
+  \resumeQuadHeading{Master's Thesis worker}{Jan 2025 -- Jun 2025}
+  {Nokia - Full time}{Espoo, Finland}
     \resumeItemListStart{}
-      \resumeItem{Topic: \textit{5G Physical Layer Channel Conditions Classification Using Machine Learning Techniques}}
-      \resumeItem{Engineered deep learning models for classifying 5G NR TDL/CDL channel conditions and LOS/NLOS detection.}
-      \resumeItem{Conducted rigorous robustness evaluation under severe domain shift in wireless propagation environments.}
-      \resumeItem{Skills: TensorFlow, Wireless AI, 5G NR, Deep Learning}
+      \resumeItem{Topic: \href{https://trepo.tuni.fi/handle/10024/229296}{\uline{5G Physical Layer Channel Conditions Classification Using Machine Learning Techniques}}}
+      \resumeItem{Responsible for building a deep learning model for 5G NR TDL/CDL channel condition classification}
+      \resumeItem{Skills: Tensorflow, Communication Engineering}
     \resumeItemListEnd{}
-\resumeHeadingListEnd{}
-\resumeHeadingListStart{}
-  \resumeQuadHeading{Software Engineering Project --- Solibri Autorun}{Jan 2024 -- May 2024}
-  {Solibri Company Project}{Tampere University}
+  \resumeQuadHeading{Bachelor's Thesis worker}{Dec 2023 -- Jan 2024}
+  {Tampere University - Apprenticeship}{Tampere, Finland}
     \resumeItemListStart{}
-      \resumeItem{Engineered a custom Java Spring Boot desktop interface eliminating XML configuration errors for BIM quality check pipelines.}
-      \resumeItem{Implemented dynamic directory scanning, automated input validation, and intuitive Figma-prototyped UI.}
-      \resumeItem{Recognised with a \texteuro{}3 000 Project Scholarship for outstanding engineering and delivery.}
-      \resumeItem{Skills: Java, Spring Boot, SonarQube, Agile Scrum}
+      \resumeItem{Topic: \href{https://trepo.tuni.fi/handle/10024/157272}{\uline{Transforming Frontal to Lateral: Chest X-ray View Conversion Using CycleGAN}}}
+      \resumeItem{Responsible for building a CycleGAN model with UNet - ResNet architecture with/without Self-Organized Operational Layers}
+      \resumeItem{Skills: TensorFlow, CycleGAN}
     \resumeItemListEnd{}
-\resumeHeadingListEnd{}
-\resumeHeadingListStart{}
-  \resumeQuadHeading{Teaching Assistant --- Programming 3 (OOP \& Java)}{Sep 2023 -- May 2024}
-  {Tampere University}{Tampere, Finland}
+  \resumeQuadHeading{Teaching Assistant}{Sep 2023 -- May 2024}
+  {Tampere University - Contract}{Tampere, Finland}
     \resumeItemListStart{}
-      \resumeItem{Instructed lab sessions (Coditoriums) and assisted undergraduate students in advanced Java, API design, and design patterns.}
-      \resumeItem{Evaluated software projects, provided code reviews, and fostered clean architectural habits.}
-      \resumeItem{Skills: Java, APIs, OOP Design, Mentorship}
+      \resumeItem{Course: \href{https://sis-tuni.funidata.fi/student/courseunit/otm-7729fb27-72e9-4e35-ba75-590fd2fc1999/brochure}{\uline{COMP.CS.140. Programming 3: Interfaces and Techniques (5 cr)}}}
+      \resumeItem{Skills: Java, API, Time management}
+      \resumeItem{Responsible for Coditoriums, Supporting students, Evaluating students' exercises and projects}
     \resumeItemListEnd{}
-\resumeHeadingListEnd{}
-\resumeHeadingListStart{}
-  \resumeQuadHeading{Research Trainee --- Light Shaping \& Adaptive Optics}{Jan 2023 -- May 2023}
-  {Tampere University}{Tampere, Finland}
+  \resumeQuadHeading{Research trainee}{Jan 2023 -- May 2023}
+  {Tampere University - Apprenticeship}{Tampere, Finland}
     \resumeItemListStart{}
-      \resumeItem{Applied Zernike polynomials and 4F optical system to a Spatial Light Modulator (SLM) for phase modulation.}
-      \resumeItem{Implemented genetic algorithms in MATLAB to optimize and compensate for optical beam imperfections.}
-      \resumeItem{Skills: MATLAB, Genetic Algorithms, Photonics, Wavefront Optics}
+      \resumeItem{Project: Automatization of image correction through the shaping of light}
+      \resumeItem{Supervisors: Prof. Robert Flicker, Postdoctoral Researcher Rafael Barros}
+      \resumeItem{Skills: Matlab, Genetic Algorithms, Photonics}
+      \resumeItem{Responsible for applying Zernike polynomial and 4F system to a spatial light modulator (SLM)}
+      \resumeItem{Apply genetic algorithms for modifying the imperfect output of the SLM.}
     \resumeItemListEnd{}
-\resumeHeadingListEnd{}
+  \resumeHeadingListEnd{}
+%---------------------------------------------
+
+
 %-----------EDUCATION-------------------------
 \section{Education}
-
-\resumeHeadingListStart{}
+  \resumeHeadingListStart{}
   \resumeQuadHeading{Aalto University}{Espoo, Finland}
-  {Master of Science (Technology)}{Aug 2024 -- Dec 2026}
+  {Master of Science (Technology)}{Aug 2024 - Dec 2026}
     \resumeItemListStart{}
-      \resumeItem{GPA: GPA 4.0 / 5.0 (75 ECTS)}
-      \resumeItem{Specialization: Machine Learning, Data Science \& AI}
-      \resumeItem{Thesis: \textit{Quantitative RL Trading System --- Reinforcement Learning for Algorithmic Trading}}
+          \resumeItem{Cumulative GPA: 4.5/5 (Currently, 75 ECTS)}
+          \resumeItem{Specialization: Machine Learning, Data Science and Artificial Intelligence}
+            \resumeItemListStart{}
+              \resumeItem{Focus on Machine Learning theory, Deep Learning, Reinforcement Learning, and High-performance computing}
+            \resumeItemListEnd{}
     \resumeItemListEnd{}
-\resumeHeadingListEnd{}
+
+  \resumeQuadHeading{Tampere University}{Tampere, Finland}
+  {Master's Programme in Computing Sciences}{Aug 2024 - July 2026}
+    \resumeItemListStart{}
+      \resumeItem{Specialization: Signal Processing and Machine Learning}
+      \resumeItem{GPA: 4.43/5 (123 ECTS)}
+      \resumeItem{Major: Signal Processing and Machine Learning}
+        \resumeItemListStart{}
+          \resumeItem{Advanced knowledge of Machine Learning, Image, Signal, and Audio Processing}
+        \resumeItemListEnd{}
+      \resumeItem{Minor: Communications and Networking}
+        \resumeItemListStart{}
+          \resumeItem{Base knowledge of Communication, Computer Networking, Software Design}
+        \resumeItemListEnd{}
+    \resumeItemListEnd{}
+
+  \resumeQuadHeading{Tampere University}{Tampere, Finland}
+  {Bachelor of Science and Engineering - Computing and Electrical Engineering track}{Aug 2022 -- Jun 2024}
+    \resumeItemListStart{}
+      \resumeItem{GPA: 4.51/5 (180 ECTS)}
+      \resumeItem{Major: Signal Processing and Machine Learning}
+        \resumeItemListStart{}
+          \resumeItem{Base knowledge of Machine learning, Image and Audio Processing, Embedded Systems, Communication Engineering, and Control Systems}
+        \resumeItemListEnd{}
+      \resumeItem{Minor: Software Systems}
+        \resumeItemListStart{}
+          \resumeItem{Base knowledge of Cyber Security, Human Interaction Technology, and Software Development}
+        \resumeItemListEnd{}
+      \resumeItem{Free choice studies:}
+        \resumeItemListStart{}
+          \resumeItem{Base knowledge of Git, and Research Training}
+        \resumeItemListEnd{}
+    \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+%---------------------------------------------
+
+
 %--------------SKILLS------------------------
 \section{Skills}
   \resumeHeadingListStart{}
-    \resumeSectionType{Programming Languages}{:}{Python, C++, C, Java, MATLAB, Scala, SQL}
-    \resumeSectionType{Frameworks}{:}{TensorFlow, PyTorch, Reinforcement Learning (PPO/SAC), Deep Learning, scikit-learn, Computer Vision}
-    \resumeSectionType{Systems \& HPC}{:}{CUDA, High-Parallel Computing, 5G NR L1, Apache Spark, Linux, Docker}
-    \resumeSectionType{Dev Tools}{:}{FastAPI, Spring Boot, Git / GitHub Actions, SonarQube, MongoDB, SQLite}
-    \resumeSectionType{Pace}{:}{244+ ECTS / 2 years (Normal Pace: 120 ECTS / 2 years)}
+    \resumeSectionType{Programming Languages}{:}{Python, C, C++, Java, Scala, Matlab, R}
+    \resumeSectionType{Frameworks}{:}{React.js, Node.js, Mocha, Spark, TensorFlow}
+    \resumeSectionType{Databases}{:}{MongoDB, SQLite}
+    \resumeSectionType{Dev Tools}{:}{Apache, Qt, Xilinx SDK, Git, SonarQube}
+    \resumeSectionType{Time Management}{:}{244+ ECTS/2 years - Normal Duration 120 ECTS/2 years}
   \resumeHeadingListEnd{}
 %--------------------------------------------
+
 
 %-----------PROJECTS--------------------------
 \section{Projects}
   \resumeHeadingListStart{}
     \resumeTrioHeading{\href{https://github.com/nntk072/Quantitative-RL-Trading-System}{\uline{Quantitative RL Trading System Aalto University $|$ Master's Thesis}}}{}{2025 -- Present}
       \resumeItemListStart{}
-        \resumeItem{Tags: Python, Reinforcement Learning, PPO / SAC, Market Microstructure}
+        \resumeItem{Tags: Python, Reinforcement Learning, PPO / SAC, Market Microstructure, FastAPI, Docker}
         \resumeItem{Master's thesis research framework developed at Aalto University for building, training, replaying, and inspecting reinforcement-learning trading policies (PPO / SAC). Features timestamped market-data pipelines, causal multi-timeframe feature calculations, broker-neutral interfaces, simulated execution, and rigorous evaluation with full experiment management.}
       \resumeItemListEnd{}
     \resumeTrioHeading{\href{https://github.com/nntk072/5g-nr-channel-condition}{\uline{5G NR Physical Layer Channel Classification Nokia $|$ Master's Thesis}}}{}{Jan 2025 -- Jun 2025}
@@ -209,28 +244,28 @@ I am a Software Engineer at Nokia working on AI-RAN, focusing on the L1 aspect o
       \resumeItemListEnd{}
     \resumeTrioHeading{Solibri Autorun Custom View Tool \texteuro{}3 000 Scholarship Award}{}{Jan 2024 -- May 2024}
       \resumeItemListStart{}
-        \resumeItem{Tags: Java, Spring Boot, JavaFX, XML}
+        \resumeItem{Tags: Java, Spring Boot, JavaFX, XML, SonarQube, Agile Scrum}
         \resumeItem{Engineered a desktop application with Java Spring Boot and JavaFX designed to eliminate syntax and semantic errors in complex XML automated building information modeling (BIM) model checking. Featured dynamic directory scanning, automated input constraint validation, Figma UI design, and SonarQube code quality assurance.}
+        \resumeItem{Scholarship for the project: 3000€}
       \resumeItemListEnd{}
     \resumeTrioHeading{Transforming Frontal to Lateral: Chest X-ray View Conversion Bachelor's Thesis}{}{Dec 2023 -- Jan 2024}
       \resumeItemListStart{}
-        \resumeItem{Tags: TensorFlow, CycleGAN, Medical Imaging, ResNet}
+        \resumeItem{Tags: TensorFlow, CycleGAN, Medical Imaging, ResNet, Computer Vision}
         \resumeItem{Synthesised lateral chest radiographs from frontal views using a custom CycleGAN framework with UNet--ResNet architecture and Self-Organised Operational Layers (SOOL). Overcame cross-projection ambiguities in medical imaging to enhance anatomical and diagnostic fidelity.}
       \resumeItemListEnd{}
   \resumeHeadingListEnd{}
 %--------------------------------------------
 
+
 %----------------OTHERS----------------------
 \section{Certifications \& Achievements}
   \resumeItemListStart{}
-    \resumeItem{\textbf{100\% Tuition Fee Scholarship}: }
-    \resumeItem{\textbf{\texteuro{}3 000 Project Scholarship}: }
-    \resumeItem{\textbf{MATLAB Fundamentals Certification}: }
-    \resumeItem{\textbf{Deep Learning Specialization}: }
-    \resumeItem{\textbf{Machine Learning Specialization}: }
-    \resumeItem{\textbf{Accelerated Academic Record}: }
+    \resumeItem{100\% Tuition Fee Scholarship: Tampere and Aalto University}
+    \resumeItem{\texteuro{}3 000 Project Scholarship: Solibri Autorun Custom View Tool}
+    \resumeItem{MATLAB Fundamentals Certification}
   \resumeItemListEnd{}
 %--------------------------------------------
+
 
 %----------------Additional-------------------
 \section{Additional}
@@ -239,4 +274,8 @@ I am a Software Engineer at Nokia working on AI-RAN, focusing on the L1 aspect o
   \resumeHeadingListEnd{}
 %--------------------------------------------
 
+
 \end{document}
+
+
+
