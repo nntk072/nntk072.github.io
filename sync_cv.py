@@ -426,8 +426,10 @@ def generate_latex(data: dict) -> str:
             else:
                 heading = title
 
-            tex.append(r"""    \resumeTrioHeading{""" + heading + r"""}{""" + tags_str + r"""}{""" + dates + r"""}
-      \resumeItemListStart{}""")
+            tex.append(r"""    \resumeTrioHeading{""" + heading + r"""}{}{""" + dates + r"""}""")
+            tex.append(r"""      \resumeItemListStart{}""")
+            if tags_str:
+                tex.append(r"""        \resumeItem{Tags: """ + tags_str + r"""}""")
             if p.get("desc"):
                 tex.append(r"""        \resumeItem{""" + tex_escape(p["desc"]) + r"""}""")
             tex.append(r"""      \resumeItemListEnd{}""")
