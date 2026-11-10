@@ -1,0 +1,48 @@
+name: Synchronize CV and Deploy
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - 'resume.tex'
+      - 'style.css'
+      - 'script.js'
+      - 'sync_cv.py'
+  workflow_dispatch:
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+
+      - name: Run CV Synchronization
+        run: |
+          python sync_cv.py
+
+      - name: Commit and push if CV changed
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add resume.tex Long_Nguyen_CV.pdf
+          if git diff --staged --quiet; then
+            echo "No changes in compiled CV."
+          else
+            git commit -m "chore(ci): auto-sync LaTeX CV and recompile PDF from index.html [skip ci]"
+            git push
+          fi

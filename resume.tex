@@ -1,0 +1,238 @@
+%-------------------------
+% Rezume, a latex resume template for developers
+% Synchronized automatically from index.html via sync_cv.py
+%-------------------------
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{verbatim}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{latexsym}
+\usepackage{marvosym}
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage[english]{babel}
+
+\input glyphtounicode
+\pdfgentounicode=1
+
+%----------FONT OPTIONS-------------------
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\urlstyle{same}
+%-----------------------------------------
+
+%----------MARGIN OPTIONS-----------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0in}
+\renewcommand{\footrulewidth}{0in}
+\setlength{\tabcolsep}{0in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\textheight}{1.0in}
+\raggedbottom{}
+\raggedright{}
+%------------------------------------------
+
+%--------SECTIONING COMMANDS---------
+\titleformat{\section}
+  {\scshape\large}{}
+    {0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
+%-------------------------------------
+
+%--------REDEFINITIONS----------------
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\ULdepth}{2pt}
+%-------------------------------------
+
+%--------CUSTOM COMMANDS--------------
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\newcommand{\resumeSectionType}[3]{
+  \item\begin{tabular*}{0.96\textwidth}[t]{
+    p{0.25\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+  }
+    \textbf{#1} & #2 & #3
+  \end{tabular*}\vspace{-2pt}
+}
+
+\newcommand{\resumeTrioHeading}[3]{
+  \item\small{
+    \begin{tabular*}{0.96\textwidth}[t]{
+      l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+    }
+      \textbf{#1} & \textit{#2} & #3
+    \end{tabular*}
+  }
+}
+
+\newcommand{\resumeQuadHeading}[4]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}
+}
+
+\newcommand{\resumeHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}]
+}
+\newcommand{\resumeHeadingListEnd}{\end{itemize}}
+%-------------------------------------------
+
+\begin{document}
+
+%-----------CONTACT DETAILS------------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Huge Long Nguyen \vspace{2pt}} &
+  Location: Tampere / Espoo, Finland \\
+  \href{https://linkedin.com/in/long-nguyen-9b299a197/}{\uline{LinkedIn}} $|$
+  \href{https://github.com/nntk072}{\uline{GitHub}} &
+  Email: \href{mailto:nguyenthelong072@gmail.com}{\uline{nguyenthelong072@gmail.com}} $|$
+  Mobile: (+358) 408589351 \\
+\end{tabular*}
+%--------------------------------------------
+
+%-----------SUMMARY--------------------------
+\section{Summary}
+\small{
+I am a Software Engineer at Nokia working on AI-RAN, focusing on the L1 aspect of 5G mobile communications. My daily work revolves around real-time digital signal processing, CUDA-accelerated high-performance computing, and modern C++ engineering for mission-critical telecommunications systems.
+}
+%--------------------------------------------
+
+%-----------EXPERIENCE-----------------------
+\section{Experience}
+
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Software Engineer --- AI-RAN (5G L1)}{Jan 2026 -- Present}
+  {Nokia}{Espoo, Finland}
+    \resumeItemListStart{}
+      \resumeItem{Developing high-performance L1 physical layer components for Nokia's next-generation AI-RAN platform.}
+      \resumeItem{Implementing high-parallel computing kernels in CUDA and C++ for real-time 5G signal processing.}
+      \resumeItem{Optimising latency and throughput constraints in mobile communication systems.}
+      \resumeItem{Skills: CUDA, C++20, 5G NR L1, Parallel Computing, AI-RAN}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Trainee --- System Modelling \& Analytics}{Jul 2025 -- Dec 2025}
+  {Nokia}{Espoo, Finland}
+    \resumeItemListStart{}
+      \resumeItem{Developed visualization tools and automated dashboards for 5G system modelling and performance analysis.}
+      \resumeItem{Integrated continuous integration (CI) workflows and contributed in an Agile Scrum engineering team.}
+      \resumeItem{Skills: CI/CD, Visualization, Scrum, Python}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Master's Thesis Researcher}{Jan 2025 -- Jun 2025}
+  {Nokia}{Espoo, Finland}
+    \resumeItemListStart{}
+      \resumeItem{Topic: \textit{5G Physical Layer Channel Conditions Classification Using Machine Learning Techniques}}
+      \resumeItem{Engineered deep learning models for classifying 5G NR TDL/CDL channel conditions and LOS/NLOS detection.}
+      \resumeItem{Conducted rigorous robustness evaluation under severe domain shift in wireless propagation environments.}
+      \resumeItem{Skills: TensorFlow, Wireless AI, 5G NR, Deep Learning}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Software Engineering Project --- Solibri Autorun}{Jan 2024 -- May 2024}
+  {Solibri Company Project}{Tampere University}
+    \resumeItemListStart{}
+      \resumeItem{Engineered a custom Java Spring Boot desktop interface eliminating XML configuration errors for BIM quality check pipelines.}
+      \resumeItem{Implemented dynamic directory scanning, automated input validation, and intuitive Figma-prototyped UI.}
+      \resumeItem{Recognised with a \texteuro{}3 000 Project Scholarship for outstanding engineering and delivery.}
+      \resumeItem{Skills: Java, Spring Boot, SonarQube, Agile Scrum}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Teaching Assistant --- Programming 3 (OOP \& Java)}{Sep 2023 -- May 2024}
+  {Tampere University}{Tampere, Finland}
+    \resumeItemListStart{}
+      \resumeItem{Instructed lab sessions (Coditoriums) and assisted undergraduate students in advanced Java, API design, and design patterns.}
+      \resumeItem{Evaluated software projects, provided code reviews, and fostered clean architectural habits.}
+      \resumeItem{Skills: Java, APIs, OOP Design, Mentorship}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Research Trainee --- Light Shaping \& Adaptive Optics}{Jan 2023 -- May 2023}
+  {Tampere University}{Tampere, Finland}
+    \resumeItemListStart{}
+      \resumeItem{Applied Zernike polynomials and 4F optical system to a Spatial Light Modulator (SLM) for phase modulation.}
+      \resumeItem{Implemented genetic algorithms in MATLAB to optimize and compensate for optical beam imperfections.}
+      \resumeItem{Skills: MATLAB, Genetic Algorithms, Photonics, Wavefront Optics}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+%-----------EDUCATION-------------------------
+\section{Education}
+
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Aalto University}{Espoo, Finland}
+  {Master of Science (Technology)}{Aug 2024 -- Dec 2026}
+    \resumeItemListStart{}
+      \resumeItem{GPA: GPA 4.0 / 5.0 (75 ECTS)}
+      \resumeItem{Specialization: Machine Learning, Data Science \& AI}
+      \resumeItem{Thesis: \textit{Quantitative RL Trading System --- Reinforcement Learning for Algorithmic Trading}}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+%--------------SKILLS------------------------
+\section{Skills}
+  \resumeHeadingListStart{}
+    \resumeSectionType{Programming Languages}{:}{Python, C++, C, Java, MATLAB, Scala, SQL}
+    \resumeSectionType{Frameworks}{:}{TensorFlow, PyTorch, Reinforcement Learning (PPO/SAC), Deep Learning, scikit-learn, Computer Vision}
+    \resumeSectionType{Systems \& HPC}{:}{CUDA, High-Parallel Computing, 5G NR L1, Apache Spark, Linux, Docker}
+    \resumeSectionType{Dev Tools}{:}{FastAPI, Spring Boot, Git / GitHub Actions, SonarQube, MongoDB, SQLite}
+    \resumeSectionType{Pace}{:}{244+ ECTS / 2 years (Normal Pace: 120 ECTS / 2 years)}
+  \resumeHeadingListEnd{}
+%--------------------------------------------
+
+%-----------PROJECTS--------------------------
+\section{Projects}
+  \resumeHeadingListStart{}
+    \resumeTrioHeading{\href{https://github.com/nntk072/Quantitative-RL-Trading-System}{\uline{Quantitative RL Trading System Aalto University $|$ Master's Thesis}}}{Python, Reinforcement Learning, PPO / SAC, Market Microstructure}{2025 -- Present}
+      \resumeItemListStart{}
+        \resumeItem{Master's thesis research framework developed at Aalto University for building, training, replaying, and inspecting reinforcement-learning trading policies (PPO / SAC). Features timestamped market-data pipelines, causal multi-timeframe feature calculations, broker-neutral interfaces, simulated execution, and rigorous evaluation with full experiment management.}
+      \resumeItemListEnd{}
+    \resumeTrioHeading{\href{https://github.com/nntk072/5g-nr-channel-condition}{\uline{5G NR Physical Layer Channel Classification Nokia $|$ Master's Thesis}}}{Python, TensorFlow, 5G NR L1, Wireless AI}{Jan 2025 -- Jun 2025}
+      \resumeItemListStart{}
+        \resumeItem{Open research framework for 5G NR physical layer channel analysis and classification (TDL / CDL channel condition models). Investigated physically grounded LOS/NLOS detection under severe domain shift in wireless propagation environments to support adaptive L1 baseband processing.}
+      \resumeItemListEnd{}
+    \resumeTrioHeading{Solibri Autorun Custom View Tool \texteuro{}3 000 Scholarship Award}{Java, Spring Boot, JavaFX, XML}{Jan 2024 -- May 2024}
+      \resumeItemListStart{}
+        \resumeItem{Engineered a desktop application with Java Spring Boot and JavaFX designed to eliminate syntax and semantic errors in complex XML automated building information modeling (BIM) model checking. Featured dynamic directory scanning, automated input constraint validation, Figma UI design, and SonarQube code quality assurance.}
+      \resumeItemListEnd{}
+    \resumeTrioHeading{Transforming Frontal to Lateral: Chest X-ray View Conversion Bachelor's Thesis}{TensorFlow, CycleGAN, Medical Imaging, ResNet}{Dec 2023 -- Jan 2024}
+      \resumeItemListStart{}
+        \resumeItem{Synthesised lateral chest radiographs from frontal views using a custom CycleGAN framework with UNet--ResNet architecture and Self-Organised Operational Layers (SOOL). Overcame cross-projection ambiguities in medical imaging to enhance anatomical and diagnostic fidelity.}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+%--------------------------------------------
+
+%----------------OTHERS----------------------
+\section{Certifications \& Achievements}
+  \resumeItemListStart{}
+    \resumeItem{\textbf{100\% Tuition Fee Scholarship}: }
+    \resumeItem{\textbf{\texteuro{}3 000 Project Scholarship}: }
+    \resumeItem{\textbf{MATLAB Fundamentals Certification}: }
+    \resumeItem{\textbf{Deep Learning Specialization}: }
+    \resumeItem{\textbf{Machine Learning Specialization}: }
+    \resumeItem{\textbf{Accelerated Academic Record}: }
+  \resumeItemListEnd{}
+%--------------------------------------------
+
+%----------------Additional-------------------
+\section{Additional}
+  \resumeHeadingListStart{}
+    \resumeSectionType{Languages}{:}{English (Professional), Vietnamese (Bilingual), Finnish (Elementary)}
+  \resumeHeadingListEnd{}
+%--------------------------------------------
+
+\end{document}
