@@ -287,7 +287,7 @@ def generate_latex(data: dict) -> str:
 \newcommand{\resumeTrioHeading}[3]{
   \item\small{
     \begin{tabular*}{0.96\textwidth}[t]{
-      l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+      p{0.43\linewidth}@{\extracolsep{\fill}}p{0.39\linewidth}@{\extracolsep{\fill}}r
     }
       \textbf{#1} & \textit{#2} & #3
     \end{tabular*}
