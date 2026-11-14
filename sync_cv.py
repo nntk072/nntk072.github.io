@@ -27,6 +27,7 @@ def clean_text(text: str) -> str:
         return ""
     text = re.sub(r"<[^>]+>", "", text)
     text = unescape(text)
+    text = text.replace("↗", "").strip()
     return " ".join(text.split())
 
 
@@ -107,8 +108,16 @@ def parse_html(html_path: Path) -> dict:
             tags = [clean_text(t) for t in re.findall(r'<span class="tag[^"]*">(.*?)</span>', item)]
 
             # Check for topic
-            topic_m = re.search(r'<strong>Topic:</strong>\s*<em>(.*?)</em>', item)
-            topic = clean_text(topic_m.group(1)) if topic_m else None
+            topic_m = re.search(r'<strong>Topic:</strong>\s*<em>(.*?)</em>', item, re.DOTALL)
+            if topic_m:
+                t_html = topic_m.group(1)
+                link_m = re.search(r'<a\s+href="([^"]+)"', t_html)
+                topic = {
+                    "title": clean_text(t_html),
+                    "url": link_m.group(1).strip() if link_m else None
+                }
+            else:
+                topic = None
 
             data["experiences"].append({
                 "role": role,
@@ -149,8 +158,16 @@ def parse_html(html_path: Path) -> dict:
             minor_m = re.search(r'<strong>Minor:</strong>\s*([^<]+)', meta_raw)
             minor = clean_text(minor_m.group(1)) if minor_m else ""
 
-            thesis_m = re.search(r'<strong>(?:M\.Sc\.|B\.Sc\.) Thesis:</strong>\s*<em>([^<]+)</em>', meta_raw)
-            thesis = clean_text(thesis_m.group(1)) if thesis_m else ""
+            thesis_m = re.search(r'<strong>(?:M\.Sc\.|B\.Sc\.) Thesis:</strong>\s*<em>(.*?)</em>', meta_raw, re.DOTALL)
+            if thesis_m:
+                th_html = thesis_m.group(1)
+                link_m = re.search(r'<a\s+href="([^"]+)"', th_html)
+                thesis = {
+                    "title": clean_text(th_html),
+                    "url": link_m.group(1).strip() if link_m else None
+                }
+            else:
+                thesis = None
 
             data["education"].append({
                 "school": school,
@@ -172,7 +189,7 @@ def parse_html(html_path: Path) -> dict:
             date_m = re.search(r'<span class="timeline-date">(.*?)</span>', p, re.DOTALL)
             comp_m = re.search(r'<div class="timeline-company">(.*?)</div>', p, re.DOTALL)
             desc_m = re.search(r'<div class="timeline-body">\s*<p>(.*?)</p>', p, re.DOTALL)
-            link_m = re.search(r'<a href="(https://github.com/[^"]+)"', p)
+            link_m = re.search(r'<a\s+href="((?:https://(?:github\.com|trepo\.tuni\.fi|drive\.google\.com)/[^"]+))"', p)
 
             role_raw = role_m.group(1) if role_m else ""
             badge_m = re.search(r'<span class="timeline-badge">(.*?)</span>', role_raw, re.DOTALL)
@@ -360,7 +377,12 @@ def generate_latex(data: dict) -> str:
     \resumeItemListStart{}""")
 
             if exp.get("topic"):
-                tex.append(r"""      \resumeItem{Topic: \textit{""" + tex_escape(exp["topic"]) + r"""}}""")
+                top = exp["topic"]
+                if isinstance(top, dict) and top.get("url"):
+                    tex.append(r"""      \resumeItem{Topic: \href{""" + top["url"] + r"""}{\uline{""" + tex_escape(top["title"]) + r"""}}}""")
+                else:
+                    top_str = top["title"] if isinstance(top, dict) else top
+                    tex.append(r"""      \resumeItem{Topic: \textit{""" + tex_escape(top_str) + r"""}}""")
 
             for bullet in exp["bullets"]:
                 tex.append(r"""      \resumeItem{""" + tex_escape(bullet) + r"""}""")
@@ -397,7 +419,12 @@ def generate_latex(data: dict) -> str:
                 tex.append(r"""      \resumeItem{Minor: """ + tex_escape(edu["minor"]) + r"""}""")
 
             if edu.get("thesis"):
-                tex.append(r"""      \resumeItem{Thesis: \textit{""" + tex_escape(edu["thesis"]) + r"""}}""")
+                th = edu["thesis"]
+                if isinstance(th, dict) and th.get("url"):
+                    tex.append(r"""      \resumeItem{Thesis: \textit{\href{""" + th["url"] + r"""}{\uline{""" + tex_escape(th["title"]) + r"""}}}}""")
+                else:
+                    th_str = th["title"] if isinstance(th, dict) else th
+                    tex.append(r"""      \resumeItem{Thesis: \textit{""" + tex_escape(th_str) + r"""}}""")
 
             tex.append(r"""    \resumeItemListEnd{}
 \resumeHeadingListEnd{}""")
