@@ -123,7 +123,7 @@ def parse_html(html_path: Path) -> dict:
     # Extract Education from #education
     edu_section = re.search(r'<section id="education"[^>]*>.*?</section>', content, re.DOTALL)
     if edu_section:
-        edu_cards = re.findall(r'<div class="edu-card">(.*?)</div>\s*</div>', edu_section.group(0), re.DOTALL)
+        edu_cards = re.split(r'<div class="edu-card">', edu_section.group(0))[1:]
         for card in edu_cards:
             school_m = re.search(r'<div class="edu-school">(.*?)</div>', card, re.DOTALL)
             degree_m = re.search(r'<div class="edu-degree">(.*?)</div>', card, re.DOTALL)
@@ -135,7 +135,7 @@ def parse_html(html_path: Path) -> dict:
             meta_raw = meta_m.group(1) if meta_m else ""
             gpa = clean_text(gpa_m.group(1)) if gpa_m else ""
 
-            school_parts = [p.strip() for p in school_raw.split("·")]
+            school_parts = [p.strip() for p in re.split(r'[·•|]', school_raw)]
             school = school_parts[0] if school_parts else school_raw
             loc = school_parts[1] if len(school_parts) > 1 else "Finland"
 
@@ -145,6 +145,9 @@ def parse_html(html_path: Path) -> dict:
 
             spec_m = re.search(r'<strong>(?:Specialization|Major):</strong>\s*([^<]+)', meta_raw)
             spec = clean_text(spec_m.group(1)) if spec_m else ""
+
+            minor_m = re.search(r'<strong>Minor:</strong>\s*([^<]+)', meta_raw)
+            minor = clean_text(minor_m.group(1)) if minor_m else ""
 
             thesis_m = re.search(r'<strong>(?:M\.Sc\.|B\.Sc\.) Thesis:</strong>\s*<em>([^<]+)</em>', meta_raw)
             thesis = clean_text(thesis_m.group(1)) if thesis_m else ""
@@ -156,6 +159,7 @@ def parse_html(html_path: Path) -> dict:
                 "dates": dates,
                 "gpa": gpa,
                 "spec": spec,
+                "minor": minor,
                 "thesis": thesis
             })
 
@@ -194,7 +198,7 @@ def parse_html(html_path: Path) -> dict:
     # Extract Skills from #skills
     skills_section = re.search(r'<section id="skills"[^>]*>.*?</section>', content, re.DOTALL)
     if skills_section:
-        cards = re.findall(r'<div class="skill-card">(.*?)</div>\s*</div>', skills_section.group(0), re.DOTALL)
+        cards = re.split(r'<div class="skill-card">', skills_section.group(0))[1:]
         for c in cards:
             cat_m = re.search(r'<div class="skill-cat">(.*?)</div>', c, re.DOTALL)
             pills = re.findall(r'<span class="skill-pill">(.*?)</span>', c, re.DOTALL)
@@ -204,7 +208,7 @@ def parse_html(html_path: Path) -> dict:
     # Extract Achievements
     ach_section = re.search(r'<section id="achievements"[^>]*>.*?</section>', content, re.DOTALL)
     if ach_section:
-        ach_cards = re.findall(r'<div class="ach-card">(.*?)</div>\s*</div>', ach_section.group(0), re.DOTALL)
+        ach_cards = re.split(r'<div class="ach-card">', ach_section.group(0))[1:]
         for c in ach_cards:
             title_m = re.search(r'<div class="ach-title">(.*?)</div>', c, re.DOTALL)
             desc_m = re.search(r'<div class="ach-desc">(.*?)</div>', c, re.DOTALL)
@@ -388,6 +392,9 @@ def generate_latex(data: dict) -> str:
 
             if edu.get("spec"):
                 tex.append(r"""      \resumeItem{Specialization: """ + tex_escape(edu["spec"]) + r"""}""")
+
+            if edu.get("minor"):
+                tex.append(r"""      \resumeItem{Minor: """ + tex_escape(edu["minor"]) + r"""}""")
 
             if edu.get("thesis"):
                 tex.append(r"""      \resumeItem{Thesis: \textit{""" + tex_escape(edu["thesis"]) + r"""}}""")
